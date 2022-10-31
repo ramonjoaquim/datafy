@@ -1,0 +1,99 @@
+
+.popup-background {
+  visibility: 'hidden';
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background-color: rgba(64, 77, 68, 0.43); 
+  
+}
+
+.popup-content {
+  height: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 45vh;
+  margin-bottom: 5px;
+  z-index: 2;
+  border-radius: 9px;
+  background: #82c294;
+  color: whitesmoke;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  /* visibility: hidden;
+  opacity: 0; */
+  overflow: hidden;
+  animation-timing-function: ease-in;
+  
+}
+
+.title-popup {
+  padding-top: 10px;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 40px;
+  padding-left: 48%;
+}
+
+.icon-arrow-down:hover {
+  color: #47855b;
+}
+
+@keyframes slideUp {
+
+  0%,
+  10% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  60%,
+  90% {
+    transform: translateY(50);
+    opacity: 1;
+  
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes slideDown {
+
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  99% {
+    transform: translateY(50);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  .footer {
+    padding-left: 45%;
+  }
+}
