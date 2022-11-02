@@ -4,12 +4,13 @@ import logoImgHover from '../../assets/logo-hover.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PopUp from '../pop-up/pop-up'
-import { Store } from 'react-notifications-component'
+import Toast from '../toast/toast'
 
 const Login = () => {
   const navigate = useNavigate();
   const [changeLogo, setChangeLogo] = useState(0);
   const [popup, setPopup] = useState(false);
+  const [notify, setNotify] = useState(false);
   const logo = [
     {
       title: 'Logo',
@@ -34,19 +35,7 @@ const Login = () => {
   }
 
   function showNotification() {
-    Store.addNotification({
-      title: "Wonderful!",
-      message: "teste my message",
-      type: "success",
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-        duration: 5000,
-        onScreen: true
-      }
-    });
+    setNotify(!notify);
   }
 
   let data = <>
@@ -93,6 +82,14 @@ const Login = () => {
              data={data}
              title='Login'>
       </PopUp>
+
+      <Toast show={notify} 
+             setNotify={setNotify} 
+             autoCloseable={false}
+             title={'titulo teste'}
+             message={'messageeeee'}
+             type='success'
+             />
     </div>
   )  
 }
