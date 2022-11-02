@@ -12,7 +12,7 @@ export function App() {
 
   return (
     <>
-    <BrowserRouter basename='spotify-wrapped'>
+    <BrowserRouter>
       <Routes>
         <Route path="*" element={<Login />} />
         <Route path="login" element={<Login />} />
