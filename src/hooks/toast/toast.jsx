@@ -4,7 +4,7 @@ import { ImWarning } from 'react-icons/im'
 import { SlClose } from 'react-icons/sl'
 import { BsInfoLg } from 'react-icons/bs'
 
-import './style.css';
+import './toast.css';
 
 const Toast = props => {
 
@@ -31,8 +31,7 @@ const Toast = props => {
     return (
         <>
             <div className={`notification-container ${props.show ? 'top-right' : 'top-left'}`} style={{
-              // visibility: props.show ? 'visible' : 'hidden'
-              visibility: 'visible'
+              visibility: props.show ? 'visible' : 'hidden'
             }}>
               <div 
                   className={`notification toast top-right`}
