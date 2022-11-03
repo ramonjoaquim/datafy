@@ -81,10 +81,10 @@ const Navbar = () => {
           <img src={logoImg} className="logo-nav-bar" id="logo-nav-bar" onClick={toHome} alt="logo spotify wrapped" />
           <div className='nav-menu'>
             <Link className='nav-link' activeClassName="active" to='/home'>
-              Home
+              <h4>Home</h4>
             </Link>
             <Link className='nav-link' activeClassName="active" to='/my-wrapped'>
-              my wrapped
+              <h4>My wrapped</h4>
             </Link>
           </div>
 

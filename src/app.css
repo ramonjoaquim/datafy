@@ -5,6 +5,10 @@
   text-align: center;
 } */
 
+#app {
+  padding-bottom: 60px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -71,3 +75,4 @@ button:focus-visible {
     color: rgba(255, 255, 255, 0.87);
   }
 }
+

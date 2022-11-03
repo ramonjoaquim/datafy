@@ -30,3 +30,14 @@
   margin-top: 10px;
   width: 100px;
 }
+
+.icon-card {
+  margin-top: 20px;
+}
+
+.blocked-box {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}

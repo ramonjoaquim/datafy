@@ -1,38 +1,43 @@
 import Loading from '../loading/loading'
 import Navbar from '../navbar/navbar'
-import HomeCard from './card/home-card'
+import spotifyLogo from '../../assets/spotify-logo.png'
 import './home.css'
 
 const Home = () => {
+
+  
+
   return (
-    <>
-      <Navbar />
-      <div className='box-home'>
-        <h2>Top Artist's</h2>
-        <section className='box-section'>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-        </section>
-        <h2>Top Song's</h2>
-        <section className='box-section'>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-        </section>
-        <h2>Top Playlist's</h2>
-        <section className='box-section'>
-          <HomeCard></HomeCard>
-          <HomeCard></HomeCard>
-        </section>
-      </div>
-    </>
+<>
+<Navbar />
+<div className='card-container'>
+    <div className='card-box'>
+      <center>
+        <div className='card-title'>My wrapped</div>
+      </center>
+      <center>
+        <img src={spotifyLogo} alt="spotify-logo" className='sotify-logo' />
+      </center>
+      <center>
+          <button type='button' className='btn'>Generate</button>
+      </center>
+    </div>
+
+    <div className='card-box blocked-box'>
+      <center>
+        <div className='card-title'># whats next</div>
+      </center>
+      <center>
+        <img src={spotifyLogo} alt="spotify-logo" className='sotify-logo' />
+      </center>
+      <center>
+          <button type='button' className='btn'>Generate</button>
+      </center>
+    </div>
+
+    {/* <Loading></Loading> */}
+  </div>
+</>
   )
 }
 

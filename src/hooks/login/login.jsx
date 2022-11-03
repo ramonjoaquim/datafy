@@ -60,9 +60,9 @@ const Login = () => {
           onClick={callLogin} 
           onMouseOver={changeLogoIn} 
           onMouseLeave={changeLogoOut}>
-            My wrapped
+            Get My wrapped
         </button>
-        <button 
+        {/* <button 
           className='button-login' 
           type='button' 
           onClick={() => setPopup(true)}
@@ -75,7 +75,7 @@ const Login = () => {
           type='button' 
           onClick={() => showNotification()}>
             test notification
-        </button>
+        </button> */}
       </form>
       <PopUp show={popup} 
              setPopup={setPopup} 

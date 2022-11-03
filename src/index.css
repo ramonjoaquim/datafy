@@ -7,3 +7,34 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 }
+
+.footer {
+  position: fixed;
+  box-shadow: 0px 0px 6px 5px #396a49;
+  background-color: rgb(71, 133, 91);
+  color: white;
+  bottom: -26px;
+  width: 100%;
+  margin-left: -120px;
+  margin-right: 10px;
+}
+
+
+.icon-footer {
+  color: whitesmoke;
+}
+
+.icon-footer:active {
+  color: whitesmoke;
+}
+
+.icon-footer:hover {
+  color: 396a49;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    margin-left: -70px;
+  }
+
+}
