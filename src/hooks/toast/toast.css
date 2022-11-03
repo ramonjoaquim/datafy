@@ -32,15 +32,15 @@
 	width: 300px;
 	max-height: 100px;
 	border-radius: 3px 3px 3px 3px;
-	box-shadow: 0 0 10px #999;
+	/* box-shadow: 0 0 10px #999; */
 	color: #000;
-	opacity: .9;
+	opacity: .8;
 	background-position: 15px;
 	background-repeat: no-repeat;
 }
 
 .notification:hover {
-	box-shadow: 0 0 8px #1b6f34;
+	box-shadow: 0 0 3px #1b6f34;
 	opacity: 1;
 	cursor: pointer
 }

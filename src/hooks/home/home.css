@@ -1,0 +1,23 @@
+.box-home {
+  display: inline;
+}
+
+.box-section {
+  display: flex;
+  column-gap: 10px;
+  justify-content: flex-start;
+  overflow-y: hidden;
+  
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #455c4b;
+  width: 5px;
+  border-radius: 10px;
+} 

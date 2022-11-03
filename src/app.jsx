@@ -12,14 +12,14 @@ export function App() {
 
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<Login />} />
-        <Route path="login" element={<Login />} />
-        <Route path="home" element={<Home />} />
-        <Route path="my-wrapped" element={<MyWrapped />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter basename='/spotify-wrapped/'>
+        <Routes>
+          <Route path="*" element={<Login />} />
+          <Route path="login" element={<Login />} />
+          <Route path="home" element={<Home />} />
+          <Route path="my-wrapped" element={<MyWrapped />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

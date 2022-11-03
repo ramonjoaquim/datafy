@@ -32,6 +32,7 @@ const Toast = props => {
         <>
             <div className={`notification-container ${props.show ? 'top-right' : 'top-left'}`} style={{
               visibility: props.show ? 'visible' : 'hidden'
+              // visibility: 'visible'
             }}>
               <div 
                   className={`notification toast top-right`}

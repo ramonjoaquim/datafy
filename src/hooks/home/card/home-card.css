@@ -1,0 +1,32 @@
+.card-container-home {
+  display: flex;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card-box-home {
+  background: #82c294;
+  width: 200px;
+  height: 200px;
+  margin-top: 0px;
+  margin-left: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-box-home:hover {
+  box-shadow: 5px 5px 10px 1px #455c4b;
+}
+
+.card-title-home {
+  color: whitesmoke;
+  font-size: larger;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sotify-logo-home {
+  margin-top: 10px;
+  width: 100px;
+}

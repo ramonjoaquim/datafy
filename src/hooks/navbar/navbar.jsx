@@ -1,4 +1,4 @@
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaArrowUp } from 'react-icons/fa'
 import { IoMdExit } from 'react-icons/io'
 import { GoHome } from 'react-icons/go'
 import { GiMusicSpell } from 'react-icons/gi'
@@ -6,10 +6,11 @@ import { NavLink as Link, useNavigate } from 'react-router-dom'
 
 import logoImg from '../../assets/logo.png'
 import './navbar.css'
+import { useState } from 'react'
 
 const Navbar = () => {
   const navigate = useNavigate();
-  let isExpanded = false;
+  const [isExpanded, setExpanded] = useState(false);
 
   window.addEventListener('resize', handleResize);
 
@@ -41,10 +42,10 @@ const Navbar = () => {
   function handleMenu() {
     if (isExpanded) {
       unexpandNavBar();
-      isExpanded = false;
+      setExpanded(false);
     } else {
       expandNavBar();
-     isExpanded = true;
+      setExpanded(true);
     }
   }
 
@@ -78,25 +79,29 @@ const Navbar = () => {
       <> 
         <div className='nav' id="nav">
           <img src={logoImg} className="logo-nav-bar" id="logo-nav-bar" onClick={toHome} alt="logo spotify wrapped" />
-          <FaBars className='bars' onClick={handleMenu} />
           <div className='nav-menu'>
-            <Link className='nav-link' to='/home' activeStyle>
+            <Link className='nav-link' activeClassName="active" to='/home'>
               Home
             </Link>
-            <Link className='nav-link' to='/my-wrapped' activeStyle>
+            <Link className='nav-link' activeClassName="active" to='/my-wrapped'>
               my wrapped
             </Link>
           </div>
 
           {/* mobile */}
+          {isExpanded 
+              ? <FaArrowUp className='bars' onClick={handleMenu} />
+              : <FaBars className='bars' onClick={handleMenu} />
+          }
+
           <div className='nav-menu-mobile' id="nav-menu-mobile">
-            <Link className='menu-item' to='/home' activeStyle>
+            <Link className='menu-item' activeClassName="active" to='/home'>
               <GoHome/> Home
             </Link>
-            <Link className='menu-item' to='/my-wrapped' activeStyle>
+            <Link className='menu-item' activeClassName="active" to='/my-wrapped'>
              <GiMusicSpell/> My wrapped
             </Link>
-            <Link className='menu-item-label btn-sing-out-mobile' to='/login' activeStyle>
+            <Link className='menu-item-label btn-sing-out-mobile' to='/login'>
              <IoMdExit/> Sign out
             </Link>
           </div>
