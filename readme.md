@@ -16,5 +16,4 @@ npm config set registry https://registry.npmjs.org/
 
 # github pages
 
-git subtree push --prefix dist origin gh-pages
 

@@ -10,6 +10,8 @@ import MyWrapped from './hooks/my-wrapped/my-wrapped'
 
 // icons
 import { SlSocialLinkedin, SlSocialSpotify, SlSocialTwitter, SlSocialGithub} from 'react-icons/sl'
+import { BiUpArrow } from 'react-icons/bi'
+import PrivateRoute from './hooks/private-route/private-route'
 
 export function App() {
 
@@ -19,6 +21,20 @@ export function App() {
     spotify: 'https://open.spotify.com/user/q5bldk137di87l9q4byprgeec',
     github: 'https://github.com/ramonjoaquim'
   }
+  const pixelsLimit = 100;
+
+
+  window.onscroll = () => {scrollFunction()};
+
+  function scrollFunction() {
+    const mybutton = document.getElementById("btnScrollTop");
+    mybutton.style.display = document.body.scrollTop > pixelsLimit || document.documentElement.scrollTop > pixelsLimit ? "block" : "none";
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  } 
 
   return (
     <>
@@ -27,8 +43,8 @@ export function App() {
           <Route path="/" element={<Login />} />
           <Route path="*" element={<Login />} />
           <Route path="login" element={<Login />} />
-          <Route path="home" element={<Home />} />
-          <Route path="my-wrapped" element={<MyWrapped />} />
+          <Route path="home" element={<PrivateRoute Component={Home}/>} />
+          <Route path="my-wrapped" element={<PrivateRoute Component={MyWrapped}/>} />
         </Routes>
       </BrowserRouter>
       <div className='footer'>
@@ -54,6 +70,9 @@ export function App() {
           </div>
         </span>
       </div>
+      <button type='button' onClick={topFunction} id="btnScrollTop" title="Go to top">
+        <BiUpArrow size={20}/>
+      </button> 
     </>
   )
 }

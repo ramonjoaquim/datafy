@@ -31,11 +31,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: whitesmoke;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #284932;
 }
 /* 
 body {
@@ -68,6 +68,26 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+#btnScrollTop {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 45px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #28493294; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#btnScrollTop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }
 
 @media (prefers-color-scheme: light) {

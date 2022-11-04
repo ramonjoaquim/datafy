@@ -2,9 +2,9 @@ import { BsPerson } from 'react-icons/bs'
 import { GiMusicSpell } from 'react-icons/gi'
 import { RiFolderMusicFill } from 'react-icons/ri'
 
-import './home-card.css'
+import './card.css'
 
-const HomeCard = (props) => {
+const Card = (props) => {
 
   const type = {
     artist: <BsPerson size={90}/>,
@@ -30,4 +30,4 @@ const HomeCard = (props) => {
   )
 }
 
-export default HomeCard
+export default Card

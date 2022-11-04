@@ -4,13 +4,12 @@ import logoImgHover from '../../assets/logo-hover.png'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PopUp from '../pop-up/pop-up'
-import Toast from '../toast/toast'
+import SpotifyLogin from '../spotify/spotify-login'
 
 const Login = () => {
   const navigate = useNavigate();
   const [changeLogo, setChangeLogo] = useState(0);
   const [popup, setPopup] = useState(false);
-  const [notify, setNotify] = useState(false);
   const logo = [
     {
       title: 'Logo',
@@ -34,10 +33,6 @@ const Login = () => {
     setChangeLogo(1)
   }
 
-  function showNotification() {
-    setNotify(!notify);
-  }
-
   let data = <>
     <div>
       <label>Email </label>
@@ -54,14 +49,7 @@ const Login = () => {
     <div className='login-component'>
       <img className='logoImg' src={logo[changeLogo].source} alt={logo[changeLogo].title} />
       <form>
-        <button 
-          className='button-login' 
-          type='button' 
-          onClick={callLogin} 
-          onMouseOver={changeLogoIn} 
-          onMouseLeave={changeLogoOut}>
-            Get My wrapped
-        </button>
+        <SpotifyLogin changeLogoIn={changeLogoIn} changeLogoOut={changeLogoOut}/>
         {/* <button 
           className='button-login' 
           type='button' 
@@ -82,14 +70,6 @@ const Login = () => {
              data={data}
              title='Login'>
       </PopUp>
-
-      <Toast show={notify} 
-             setNotify={setNotify} 
-             autoCloseable={false}
-             title={'titulo teste'}
-             message={'messageeeee'}
-             type='success'
-             />
     </div>
   )  
 }

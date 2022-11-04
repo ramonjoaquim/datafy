@@ -1,5 +1,5 @@
 import Navbar from '../navbar/navbar'
-import HomeCard from '../home/card/home-card'
+import Card from './card/card'
 import './my-wrapped.css'
 import RadioSwitch from './radio-switch/radio-switch'
 
@@ -21,26 +21,28 @@ const MyWrapped = () => {
     return genreNames[Math.floor(Math.random()*genreNames.length)];
   }
 
-return (
-  <>
-      <Navbar />
-      <RadioSwitch/>
-      <div className='box-home'>
-        <h2>Top Artist's</h2>
-        <section className='box-section'>
-          {Array.apply(0, Array(2)).map(() => <HomeCard title={getRandomBandName()} type='artist' blocked={true}></HomeCard>)}
-        </section>
-        <h2>Top Song's</h2>
-        <section className='box-section'>
-        {Array.apply(0, Array(4)).map(() => <HomeCard title={getRandomSongsdName()} type='song' blocked={true}></HomeCard>)}
-        </section>
-        <h2>Top genres's</h2>
-        <section className='box-section'>
-        {Array.apply(0, Array(6)).map(() => <HomeCard title={getRandomGenreName()} type='genre' blocked={true}></HomeCard>)}
-        </section>
-      </div>
-    </>
-)
+  //https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists&time_range=&limit=&offset=
+
+  return (
+    <>
+        <Navbar />
+        <RadioSwitch/>
+        <div className='box-home'>
+          <h2>Top Artist's</h2>
+          <section className='box-section'>
+            {Array.apply(0, Array(2)).map(() => <Card title={getRandomBandName()} type='artist' blocked={true}></Card>)}
+          </section>
+          <h2>Top Song's</h2>
+          <section className='box-section'>
+          {Array.apply(0, Array(4)).map(() => <Card title={getRandomSongsdName()} type='song' blocked={true}></Card>)}
+          </section>
+          <h2>Top genres's</h2>
+          <section className='box-section'>
+          {Array.apply(0, Array(6)).map(() => <Card title={getRandomGenreName()} type='genre' blocked={true}></Card>)}
+          </section>
+        </div>
+      </>
+  )
 }
 
 export default MyWrapped

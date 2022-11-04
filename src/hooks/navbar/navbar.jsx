@@ -7,6 +7,7 @@ import { NavLink as Link, useNavigate } from 'react-router-dom'
 import logoImg from '../../assets/logo.png'
 import './navbar.css'
 import { useState } from 'react'
+import { clearUserContext } from '../../context/user-context'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -75,6 +76,11 @@ const Navbar = () => {
     navigate('/home')
   }
 
+  function logout() {
+    clearUserContext()
+    window.location.reload()
+  }
+
   return (
       <> 
         <div className='nav' id="nav">
@@ -101,13 +107,13 @@ const Navbar = () => {
             <Link className='menu-item' activeClassName="active" to='/my-wrapped'>
              <GiMusicSpell/> My wrapped
             </Link>
-            <Link className='menu-item-label btn-sing-out-mobile' to='/login'>
+            <Link className='menu-item-label btn-sing-out-mobile' onClick={logout}>
              <IoMdExit/> Sign out
             </Link>
           </div>
           {/* mobile */}
           <div className='nav-btn'>
-            <Link className='nav-btn-link' to='/login'>Sign out</Link>
+            <Link className='nav-btn-link' onClick={logout}>Sign out</Link>
           </div>
         </div>
       </>
