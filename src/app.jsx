@@ -13,6 +13,15 @@ import { SlSocialLinkedin, SlSocialSpotify, SlSocialTwitter, SlSocialGithub} fro
 import { BiUpArrow } from 'react-icons/bi'
 import PrivateRoute from './hooks/private-route/private-route'
 
+//fonts
+import './fonts/Bungee_Inline/BungeeInline-Regular.ttf'
+import './fonts/Leckerli_One/LeckerliOne-Regular.ttf'
+import './fonts/Megrim/Megrim-Regular.ttf'
+import './fonts/Nabla/Nabla-Regular.ttf'
+import './fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf'
+import './fonts/Rubik_Dirt/RubikDirt-Regular.ttf'
+import './fonts/Syncopate/Syncopate-Regular.ttf'
+
 export function App() {
 
   const socialLinks = {
@@ -47,29 +56,32 @@ export function App() {
           <Route path="my-wrapped" element={<PrivateRoute Component={MyWrapped}/>} />
         </Routes>
       </BrowserRouter>
+      <center>
       <div className='footer'>
         <span>
           <div style={{
-            display: 'flex',
-            columnGap: '30px',
-            marginBottom: '20px',
-            marginTop: '5px'
+            display: 'block',
+            marginBottom: '0',
+            marginTop: '20px',
+            justifyContent: 'center',
           }}>
+          Developed by Ramon J. Limas
           <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className='icon-footer'>
-            <SlSocialLinkedin size={26}/>
+            <SlSocialLinkedin size={20}/>
           </a>
           <a href={socialLinks.spotify} target="_blank" rel="noopener noreferrer" className='icon-footer'>
-            <SlSocialSpotify size={26}/> 
+            <SlSocialSpotify size={20}/> 
           </a>
           <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className='icon-footer'>
-            <SlSocialTwitter size={30}/>
+            <SlSocialTwitter size={20}/>
           </a>
           <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className='icon-footer'>
-            <SlSocialGithub size={30}/>
+            <SlSocialGithub size={20}/>
           </a>
           </div>
         </span>
       </div>
+      </center>
       <button type='button' onClick={topFunction} id="btnScrollTop" title="Go to top">
         <BiUpArrow size={20}/>
       </button> 

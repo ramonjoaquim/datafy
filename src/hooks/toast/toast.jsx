@@ -1,6 +1,6 @@
 import { CgClose } from 'react-icons/cg'
 import { MdDoneAll } from 'react-icons/md'
-import { ImWarning } from 'react-icons/im'
+import { ImWarning, ImHappy } from 'react-icons/im'
 import { SlClose } from 'react-icons/sl'
 import { BsInfoLg } from 'react-icons/bs'
 
@@ -12,14 +12,16 @@ const Toast = props => {
     success: '#82c294',
     warn: '#dda339d9',
     error: '#cc3838',
-    info: '#1e93cc'
+    info: '#1e93cc',
+    hi: '#444941'
   }
 
   const icons = {
     success: <MdDoneAll size={35}/>,
     warn: <ImWarning size={35}/>,
     error: <SlClose size={35}/>,
-    info: <BsInfoLg size={35}/>
+    info: <BsInfoLg size={35}/>,
+    hi: <ImHappy size={35}/>,
   }
 
     if (props.autoCloseable) setTimeout(() => {

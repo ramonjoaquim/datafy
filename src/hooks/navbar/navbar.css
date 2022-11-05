@@ -134,7 +134,7 @@
   }
 
   .btn-sing-out-mobile:hover {
-    background: rgb(206, 84, 84)!important;
+    /* background: rgb(206, 84, 84)!important; */
   }
 
   .menu-item {
@@ -143,17 +143,17 @@
 
   .menu-item:hover {
     color: #47855b;
-    border-radius: 9px;
-    background: #47855b;
-    padding: 10px 22px;
+    /* border-radius: 9px; */
+    /* background: #47855b; */
+    /* padding: 10px 22px; */
     color: whitesmoke;
     outline: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    /* transition: all 0.2s ease-in-out; */
     text-decoration: none;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
   }
 
   .active {
@@ -164,15 +164,15 @@
     color: whitesmoke;
   }
   .menu-item-label:hover {
-    color: red;
+    /* color: red;
     border-radius: 9px;
-    background: #47855b;
-    padding: 10px 22px;
+    background: #47855b; */
+    /* padding: 10px 22px; */
     color: whitesmoke;
     outline: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    /* transition: all 0.2s ease-in-out; */
     text-decoration: none;
   }
 }

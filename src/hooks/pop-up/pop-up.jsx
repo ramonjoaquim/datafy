@@ -27,13 +27,15 @@ const PopUp = (props) => {
         animationTimingFunction: props.show ? 'ease-in' : 'ease-out',
       }}>
         <div>
+          <center>
           <header>
             <h3 className='title-popup'>{props.title}</h3>
           </header>
+          </center>
           <main>
           {props.data}
           </main>
-          <footer className='footer'>
+          <footer className='footer-popup'>
             <span onClick={() => hidePopup()}>
               <MdOutlineKeyboardArrowDown size={40} className='icon-arrow-down'/>
             </span>

@@ -1,8 +1,13 @@
   
-function setUserContext(accessToken, tokenType, expiresIn) {
+function setUserContext({accessToken, tokenType, expiresIn, market}) {
   localStorage.setItem('accessToken', accessToken)
   localStorage.setItem('tokenType', tokenType)
   localStorage.setItem('expiresIn', expiresIn)
+  localStorage.setItem('market', market)
+}
+
+function setMarketContext(market) {
+  localStorage.setItem('market', market)
 }
 
 function getUserContext() {
@@ -10,6 +15,7 @@ function getUserContext() {
     accessToken: localStorage.getItem('accessToken'),
     tokenType: localStorage.getItem('tokenType'),
     expiresIn: localStorage.getItem('expiresIn'),
+    market: localStorage.getItem('market'),
   }
 }
 
@@ -22,4 +28,4 @@ function isUserLogged() {
 }
 
 
-export { isUserLogged, clearUserContext, getUserContext, setUserContext }
+export { isUserLogged, clearUserContext, getUserContext, setUserContext, setMarketContext }

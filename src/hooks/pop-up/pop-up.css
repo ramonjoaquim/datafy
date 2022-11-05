@@ -2,7 +2,7 @@
 .popup-background {
   visibility: 'hidden';
   position: fixed; 
-  z-index: 1; 
+  z-index: 100; 
   left: 0;
   top: 0;
   width: 100%; 
@@ -18,7 +18,7 @@
   margin-right: 10px;
   margin-top: 45vh;
   margin-bottom: 5px;
-  z-index: 2;
+  z-index: 101;
   border-radius: 9px;
   background: #82c294;
   color: whitesmoke;
@@ -37,7 +37,7 @@
 }
 
 
-.footer {
+.footer-popup {
   position: absolute;
   bottom: 40px;
   padding-left: 48%;
@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 768px) {
   
-  .footer {
+  .footer-popup {
     padding-left: 45%;
   }
 }

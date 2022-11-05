@@ -1,13 +1,13 @@
 import './loading.css'
 
-const Loading = () => {
+const Loading = (props) => {
 
 return (
   <>
-    <div className='dot'></div>
-    <center>
-      <span className='loading-label'>Loading...</span>
-    </center>
+      <div className='loading-container'>
+        <div className='dot' style={{color: props.color}} />
+        <span className='loading-label'>Loading...</span>
+      </div>
   </>
 )
 }

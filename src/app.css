@@ -5,8 +5,72 @@
   text-align: center;
 } */
 
+@font-face {
+  font-family: "BungeeInline";
+  src: local('BungeeInline'), url('./fonts//Bungee_Inline/BungeeInline-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "LeckerliOne";
+  src: local('LeckerliOne'), url('./fonts//Leckerli_One/LeckerliOne-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "Megrim";
+  src: local('Megrim'), url('./fonts//Megrim//Megrim-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "Nabla";
+  src: local('Nabla'), url('./fonts//Nabla/Nabla-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "Reenie";
+  src: local('Reenie'), url('./fonts//Reenie_Beanie/ReenieBeanie-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local('Rubik'), url('./fonts//Rubik_Dirt//RubikDirt-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "syncopate";
+  src: local('syncopate'), url('./fonts//Syncopate/Syncopate-Regular.ttf') format("truetype");
+}
+
+.font-bunge {
+  font-family: "BungeeInline";
+}
+
+.font-lecker {
+  font-family: "LeckerliOne";
+}
+
+.font-megrim {
+  font-family: "Megrim";
+}
+
+.font-nabla {
+  font-family: "Nabla";
+}
+
+.font-rennie {
+  font-family: "Reenie";
+}
+
+.font-rubik {
+  font-family: "Rubik";
+}
+
+.font-syncopate {
+  font-family: "syncopate";
+}
+
+
 #app {
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 .logo {

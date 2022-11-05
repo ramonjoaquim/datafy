@@ -17,6 +17,7 @@
 
 .card-box-home:hover {
   box-shadow: 5px 5px 10px 1px #455c4b;
+  background-color: #455c4b;
 }
 
 .card-title-home {
@@ -24,6 +25,8 @@
   font-size: larger;
   padding-top: 10px;
   padding-bottom: 10px;
+  max-height: 40px;
+  word-break: break-word;
 }
 
 .sotify-logo-home {
@@ -32,7 +35,7 @@
 }
 
 .icon-card {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .blocked-box {
@@ -40,4 +43,16 @@
   -webkit-filter: blur(2px);
   box-shadow: none !important;
   cursor: not-allowed !important;
+}
+
+.img-artist {
+  max-width: 70% !important;
+  max-height: 130px;
+  border-radius: 7px;
+}
+
+.img-band {
+  max-width: 50% !important;
+  max-height: 110px;
+  border-radius: 7px;
 }

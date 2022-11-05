@@ -1,7 +1,8 @@
-import { setUserContext, clearUserContext, isUserLogged } from '../../context/user-context'
+import { setUserContext, clearUserContext, isUserLogged , getUserContext, setMarketContext } from '../../context/user-context'
 import React, { useEffect, useState } from "react";
 import Toast  from '../toast/toast'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const SpotifyLogin = (props) => {
 
@@ -10,9 +11,9 @@ const SpotifyLogin = (props) => {
   const REDIRECT_URL_AFTER_LOGIN = "http://localhost:5173/spotify-wrapped/";
   const SPACE_DELIMITER = "%20";
   const SCOPES = [
-    "user-read-currently-playing",
-    "user-read-playback-state",
-    "playlist-read-private",
+    'user-read-private',
+    'user-read-playback-state',
+    'user-top-read'
   ];
   const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
 
@@ -38,13 +39,26 @@ const SpotifyLogin = (props) => {
         getReturnedParamsFromSpotifyAuth(window.location.hash);
 
       clearUserContext()
-      setUserContext(access_token, token_type, expires_in)
+      setUserContext({accessToken: access_token, tokenType: token_type, expiresIn: expires_in})
+      getProfile()
     }
     
     if (isUserLogged()) {
       navigate('/home')
     }
   });
+
+  const getProfile = () => {
+    axios.get(`https://api.spotify.com/v1/me`, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getUserContext().accessToken}`
+      }
+    }).then(res => {
+      setMarketContext(res.data.country)
+    })
+  }
 
   const  handleLogin = () =>  {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
