@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom'
 import Login from './hooks/login/login'
 import Home from './hooks/home/home'
-import MyWrapped from './hooks/my-wrapped/my-wrapped'
 
 // icons
 import { SlSocialLinkedin, SlSocialSpotify, SlSocialTwitter, SlSocialGithub} from 'react-icons/sl'
@@ -21,6 +20,7 @@ import './fonts/Nabla/Nabla-Regular.ttf'
 import './fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf'
 import './fonts/Rubik_Dirt/RubikDirt-Regular.ttf'
 import './fonts/Syncopate/Syncopate-Regular.ttf'
+import DatafySearch from './hooks/datafy-search/datafy-search'
 
 export function App() {
 
@@ -47,13 +47,13 @@ export function App() {
 
   return (
     <>
-      <BrowserRouter basename='/spotify-wrapped/'>
+      <BrowserRouter basename='/datafy/'>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="*" element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="home" element={<PrivateRoute Component={Home}/>} />
-          <Route path="my-wrapped" element={<PrivateRoute Component={MyWrapped}/>} />
+          <Route path="datafy-search" element={<PrivateRoute Component={DatafySearch}/>} />
         </Routes>
       </BrowserRouter>
       <center>

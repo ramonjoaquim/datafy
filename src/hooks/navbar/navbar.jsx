@@ -89,8 +89,8 @@ const Navbar = () => {
             <Link className='nav-link' activeClassName="active" to='/home'>
               <h4>Home</h4>
             </Link>
-            <Link className='nav-link' activeClassName="active" to='/my-wrapped'>
-              <h4>My wrapped</h4>
+            <Link className='nav-link' activeClassName="active" to='/datafy-search'>
+              <h4>Datafy</h4>
             </Link>
           </div>
 
@@ -104,8 +104,8 @@ const Navbar = () => {
             <Link className='menu-item' activeClassName="active" to='/home'>
               <GoHome/> Home
             </Link>
-            <Link className='menu-item' activeClassName="active" to='/my-wrapped'>
-             <GiMusicSpell/> My wrapped
+            <Link className='menu-item' activeClassName="active" to='/datafy-search'>
+             <GiMusicSpell/> Datafy
             </Link>
             <Link className='menu-item-label btn-sing-out-mobile' onClick={logout}>
              <IoMdExit/> Sign out

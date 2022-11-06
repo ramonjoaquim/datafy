@@ -6,18 +6,18 @@
   left: 0;
   top: 0;
   width: 100%; 
-  height: 100%; 
+  height: 100%;
   overflow: hidden; 
   background-color: rgba(64, 77, 68, 0.43); 
   
 }
 
 .popup-content {
-  height: 50%;
+  height: 65%;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 45vh;
-  margin-bottom: 5px;
+  margin-top: 34vh;
+  margin-bottom: 20px;
   z-index: 101;
   border-radius: 9px;
   background: #82c294;
@@ -38,8 +38,8 @@
 
 
 .footer-popup {
-  position: absolute;
-  bottom: 40px;
+  /* position: absolute; */
+  /* bottom: 10px; */
   padding-left: 48%;
 }
 
@@ -95,5 +95,25 @@
   
   .footer-popup {
     padding-left: 45%;
+  }
+
+  .popup-content {
+    height: 65%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 34vh;
+    margin-bottom: 26px;
+    z-index: 101;
+    border-radius: 9px;
+    background: #82c294;
+    color: whitesmoke;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    /* visibility: hidden;
+    opacity: 0; */
+    overflow: hidden;
+    animation-timing-function: ease-in;
+    
   }
 }

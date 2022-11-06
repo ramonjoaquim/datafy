@@ -25,3 +25,18 @@
 .label-order {
   color: #82c2949e;
 }
+
+.track-row {
+  width: 40vh;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.track-row:hover {
+  color: aquamarine;
+}
+
+.top-tracks-text {
+  vertical-align: middle;
+}

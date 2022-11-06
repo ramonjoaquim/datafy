@@ -1,15 +1,17 @@
 import Navbar from '../navbar/navbar'
 import Card from './card/card'
-import './my-wrapped.css'
+import './datafy-search.css'
 import RadioSwitch from './radio-switch/radio-switch'
 import PopUp from '../pop-up/pop-up'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { getUserContext } from '../../context/user-context'
 import Loading from '../loading/loading'
 import Toast from '../toast/toast'
+import { getArtists, getArtistTopTracks, getTopSongs } from '../../client/spotify-client'
 
-const MyWrapped = () => {
+//icons
+import { HiPlay } from 'react-icons/hi'
+
+const DatafySearch = () => {
   const genreNames = ['Pop', 'Rock', 'Eletronic', 'Indie', 'Indie Rock', 'lofi']
   const bandNames = ['Beach Bunny', 'Drake', 'Slipknot', 'Foo Fighters', 'Eminem', 'Snoop Dog', 'Daughter', '50 Cent', 'Halo', 'Ice cube']
   const songNames = ['Stress', 'Nobody knows', 'Issa Vibe', 'Have me all', 'All on me', 'Show me', 'Can you', 'Lemon', 'Body flow']
@@ -23,20 +25,43 @@ const MyWrapped = () => {
   const [loadingArtist, setLoadingArtist] = useState(false)
   const [loadingSong, setloadingSong] = useState(false)
   const [loadingTopTracksArtists, setLoadingTopTracksArtists] = useState(false)
-  const [popup, setPopup] = useState(false);
-  const [titleArtist, setTitleArtist] = useState('');
-  const [content, setContent] = useState('');
-  const [notify, setNotify] = useState(false);
+  const [popup, setPopup] = useState(false)
+  const [titleArtist, setTitleArtist] = useState('')
+  const [content, setContent] = useState()
+  const [notify, setNotify] = useState(false)
+  const [titleNotify, setTitleNotify] = useState()
 
   useEffect(() => {
     getTopArtist(filter)
-    getTopSongs(filter)
+    getTopSong(filter)
   }, [filter])
 
+
+  useEffect(() => {
+    let cont = <>
+      <center><h3>Top tracks</h3></center>
+      <center>
+          {Array.apply(0, topTracksArtist).map((track) => 
+            <>
+            <div className='track-row'>
+              <span className='top-tracks-text font-bunge'>{track.name}</span>
+              <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                <HiPlay size={30} className='icon-play' title='Listen on Spotify'/>
+              </a>
+            </div>
+            </>
+          )}
+      </center>
+        </>;
+      setContent(cont)
+  }, [popup])
+
   function selectArtist(artist) {
-    setPopup(!popup)
     setTitleArtist(artist.name)
-    getTopTracksArtist(artist.id)
+    getTopTracksArtist(artist.id).then(res => {
+      setTopTracksArtist(res.data.tracks)
+      setPopup(!popup)
+    })
   }
 
   function getRandomBandName() {
@@ -50,71 +75,34 @@ const MyWrapped = () => {
   function getTopArtist(filter) {
     if (!filter) return;
     setLoadingArtist(true)
-    axios.get('https://api.spotify.com/v1/me/top/artists', {
-      params: {
-        time_range: filter,
-        limit: 10,
-        offset: 0
-      },
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getUserContext().accessToken}`
-      }
-    }).then(res => {
+    getArtists(filter).then(res => {
       setTopArtists(res.data.items)
       getTopGenres(res.data.items)
       setLoadingArtist(false)
+    })
+    .catch((err) => {
+      setLoadingArtist(false)
+      setTitleNotify(err?.response?.data?.error?.message)  
+      setNotify(true)
     })
   }
 
   function getTopTracksArtist(idArtist) {
     if (!idArtist) return;
     setLoadingTopTracksArtists(true)
-    axios.get(`https://api.spotify.com/v1/artists/${idArtist}/top-tracks`, {
-      params: {
-        market: getUserContext().market
-      },
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getUserContext().accessToken}`
-      }
-    }).then(res => {
-      setTopTracksArtist(res.data.tracks)
-      setContent(<>
-        <center>Top tracks</center>
-        <center> {loadingTopTracksArtists 
-              ? <Loading color={'white'}/> 
-              : <>
-                {Array.apply(0, topTracksArtist).map((track) => 
-                  <span>{track.name}</span>
-                )}              
-              </>}
-        </center>
-          </>)
-      setLoadingTopTracksArtists(false)
-    })
+    return getArtistTopTracks(idArtist);
   }
 
-  function getTopSongs(filter) {
+  function getTopSong(filter) {
     if (!filter) return;
     setloadingSong(true)
-    axios.get('https://api.spotify.com/v1/me/top/tracks', {
-      params: {
-        time_range: filter,
-        limit: 10,
-        offset: 0
-      },
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getUserContext().accessToken}`
-      }
-    }).then(res => {
+    getTopSongs(filter).then(res => {
       setTopSongs(res.data.items)
       setloadingSong(false)
       setDefaultGenre(false)
+    })
+    .catch(() => {
+      setloadingSong(false)
     })
   }
 
@@ -159,20 +147,20 @@ const MyWrapped = () => {
           </section>
         </div>
 
+        <Toast 
+          show={notify}
+          setNotify={setNotify}
+          type={'error'}
+          title={titleNotify}
+          message={'Try login again'} />
+
         <PopUp 
           show={popup} 
           setPopup={setPopup} 
           title={titleArtist}
           data={content} />
-
-        <Toast 
-          show={notify}
-          setNotify={setNotify}
-          type={'hi'}
-          title={'Hi!'}
-          message={'Select a period (last month / 6 months / all time)'} />
       </>
   )
 }
 
-export default MyWrapped
+export default DatafySearch

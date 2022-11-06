@@ -2,6 +2,7 @@ import Loading from '../loading/loading'
 import Navbar from '../navbar/navbar'
 import spotifyLogo from '../../assets/spotify-logo.png'
 import './home.css'
+import RadioSwitch from '../datafy-search/radio-switch/radio-switch'
 
 
 const Home = () => {
@@ -15,6 +16,9 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <RadioSwitch />
+      {/* <Loading></Loading> */}
+
       <div className='card-container'>
         <div className='card-box'>
           <center>
@@ -51,8 +55,12 @@ const Home = () => {
             <button type='button' className='btn'>Generate</button>
           </center>
         </div>
-
-        {/* <Loading></Loading> */}
+        {/* <Toast 
+          show={notify}
+          setNotify={setNotify}
+          type={'hi'}
+          title={'Hi!'}
+          message={'Select a period (last month / 6 months / all time)'} /> */}
       </div>
     </>
   )

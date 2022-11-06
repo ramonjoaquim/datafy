@@ -1,14 +1,13 @@
-import { setUserContext, clearUserContext, isUserLogged , getUserContext, setMarketContext } from '../../context/user-context'
-import React, { useEffect, useState } from "react";
-import Toast  from '../toast/toast'
+import { setUserContext, clearUserContext, isUserLogged , setMarketContext } from '../../context/user-context'
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { getMe } from '../../client/spotify-client';
 
 const SpotifyLogin = (props) => {
 
-  const CLIENT_ID = "1f243e6fb66f447f92caf335279d1c3f"; // insert your client id here from spotify
-  const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-  const REDIRECT_URL_AFTER_LOGIN = "http://localhost:5173/spotify-wrapped/";
+  const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT; 
+  const SPOTIFY_AUTHORIZE_ENDPOINT = import.meta.env.VITE_SPOTIFY_AUTH;
+  const REDIRECT_URL_AFTER_LOGIN = import.meta.env.VITE_BASE_URL;
   const SPACE_DELIMITER = "%20";
   const SCOPES = [
     'user-read-private',
@@ -30,8 +29,6 @@ const SpotifyLogin = (props) => {
   };
 
   const navigate = useNavigate();
-  const [notify, setNotify] = useState(false);
-
 
   useEffect(() => {
     if (window.location.hash) {
@@ -49,13 +46,7 @@ const SpotifyLogin = (props) => {
   });
 
   const getProfile = () => {
-    axios.get(`https://api.spotify.com/v1/me`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getUserContext().accessToken}`
-      }
-    }).then(res => {
+    getMe().then(res => {
       setMarketContext(res.data.country)
     })
   }
@@ -63,15 +54,6 @@ const SpotifyLogin = (props) => {
   const  handleLogin = () =>  {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
-
-//   function showNotification() {
-//     setNotify(!notify);
-//   }
-
-
-//   if (window.location.toString().includes('?error=access_denied')) {
-//     showNotification()
-// }
 
   return (
     <>
@@ -83,13 +65,6 @@ const SpotifyLogin = (props) => {
       onMouseLeave={props.changeLogoOut}>
       Login to Spotify
     </button>
-    
-    <Toast show={notify}
-      setNotify={setNotify}
-      autoCloseable={false}
-      title={'titulo teste'}
-      message={'messageeeee'}
-      type='success' />
     </>
   )
 

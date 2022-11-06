@@ -25,4 +25,6 @@ dist-ssr
 
 
 # Custom
-package-lock.json*
+package-lock.json
+
+*.local

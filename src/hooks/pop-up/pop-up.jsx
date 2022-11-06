@@ -29,7 +29,7 @@ const PopUp = (props) => {
         <div>
           <center>
           <header>
-            <h3 className='title-popup'>{props.title}</h3>
+            <h2 className='title-popup font-bunge'>{props.title}</h2>
           </header>
           </center>
           <main>
