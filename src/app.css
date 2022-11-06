@@ -77,9 +77,15 @@
   font-family: "dazzle";
 }
 
+*{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+*:focus {outline:none !important}
 
 #app {
-  /* padding-bottom: 60px; */
+  outline: none;
+  outline-style: none;
 }
 
 .logo {
