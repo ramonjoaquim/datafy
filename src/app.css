@@ -40,6 +40,11 @@
   src: local('syncopate'), url('./fonts//Syncopate/Syncopate-Regular.ttf') format("truetype");
 }
 
+@font-face {
+  font-family: "dazzle";
+  src: local('dazzle'), url('./fonts//Dazzle/BIG-DAZZLE.ttf') format("truetype");
+}
+
 .font-bunge {
   font-family: "BungeeInline";
 }
@@ -66,6 +71,10 @@
 
 .font-syncopate {
   font-family: "syncopate";
+}
+
+.font-dazzle {
+  font-family: "dazzle";
 }
 
 

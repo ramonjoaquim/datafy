@@ -24,5 +24,15 @@ body {
 
 .login-component {
   margin-top: 30vh;
+  margin-bottom: 10vh;
   text-align: center;
+}
+
+
+.title-logo {
+  cursor: pointer;
+}
+
+.title-logo:hover {
+  color: #E4E6C3
 }

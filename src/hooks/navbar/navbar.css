@@ -1,7 +1,12 @@
 
 .logo-nav-bar {
-  width: 400px;
+  margin: 30px;
+  font-size: 70px;
   cursor: pointer;
+}
+
+.logo-nav-bar:hover {
+  color: #E4E6C3
 }
 
 .nav {
@@ -84,8 +89,8 @@
 
 @media screen and (max-width: 768px) {
   .logo-nav-bar {
-    width: 300px;
-    height: 70px;
+    margin: 30px;
+    font-size: 70px;
   }
   .bars {
     display: block;
@@ -95,6 +100,7 @@
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
   }
 
   .bars:active {

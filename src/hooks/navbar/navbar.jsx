@@ -3,11 +3,9 @@ import { IoMdExit } from 'react-icons/io'
 import { GoHome } from 'react-icons/go'
 import { GiMusicSpell } from 'react-icons/gi'
 import { NavLink as Link, useNavigate } from 'react-router-dom'
-
-import logoImg from '../../assets/logo.png'
-import './navbar.css'
 import { useState } from 'react'
 import { clearUserContext } from '../../context/user-context'
+import './navbar.css'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -84,20 +82,20 @@ const Navbar = () => {
   return (
       <> 
         <div className='nav' id="nav">
-          <img src={logoImg} className="logo-nav-bar" id="logo-nav-bar" onClick={toHome} alt="logo spotify wrapped" />
+          <span className='font-dazzle logo-nav-bar' id='logo-nav-bar' onClick={() => toHome()}>Datafy</span>
           <div className='nav-menu'>
             <Link className='nav-link' activeClassName="active" to='/home'>
               <h4>Home</h4>
             </Link>
             <Link className='nav-link' activeClassName="active" to='/datafy-search'>
-              <h4>Datafy</h4>
+              <h4>Datafy stats</h4>
             </Link>
           </div>
 
           {/* mobile */}
           {isExpanded 
               ? <FaArrowUp className='bars' onClick={handleMenu} />
-              : <FaBars className='bars' onClick={handleMenu} />
+              : <FaBars className='bars' onClick={handleMenu}/>
           }
 
           <div className='nav-menu-mobile' id="nav-menu-mobile">
@@ -105,7 +103,7 @@ const Navbar = () => {
               <GoHome/> Home
             </Link>
             <Link className='menu-item' activeClassName="active" to='/datafy-search'>
-             <GiMusicSpell/> Datafy
+             <GiMusicSpell/> Datafy stats
             </Link>
             <Link className='menu-item-label btn-sing-out-mobile' onClick={logout}>
              <IoMdExit/> Sign out
