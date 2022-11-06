@@ -48,16 +48,19 @@ const CardMyTop = (props) => {
 
   return (
     <div className='card-box-my-top' style={{
-      backgroundImage: `url(${background})`
+      backgroundImage: `url(${background})`,
+      animation: 'slideUp 1s',
+      animationTimingFunction: 'ease-out',
+
     }}>
       <center>
         <div className={`card-title font-${getRandomFont()}`}>{props.title}</div>
       </center>
       <center>
         <div className='arrows-change-background'>
-          <TfiArrowCircleLeft size={40} className='icon-arrow-left' onClick={() => changeBackground('left')}/>
+          <button type='button' className='btn-card-my-top btn-left' onClick={() => changeBackground('left')}><TfiArrowCircleLeft size={40} className='icon-arrow-left'/></button>
           {type[props.type]}          
-          <TfiArrowCircleRight size={40} className='icon-arrow-right' onClick={() => changeBackground('right')}/>
+          <button type='button' className='btn-card-my-top btn-right' onClick={() => changeBackground('right')}><TfiArrowCircleRight size={40} className='icon-arrow-right'/></button>
         </div>
       </center>
       <center>
