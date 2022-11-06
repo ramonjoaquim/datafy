@@ -1,9 +1,9 @@
-import Loading from '../loading/loading'
 import Navbar from '../navbar/navbar'
 import RadioSwitch from '../datafy-search/radio-switch/radio-switch'
 import CardMyTop from './card-my-top/card-my-top'
 import { useState, useEffect } from 'react'
 import { getArtists, getTopSongs } from '../../client/spotify-client'
+import { setTopArtistContext, setTopSongContext, getSearchContext } from '../../context/search-context'
 
 import './home.css'
 
@@ -21,19 +21,35 @@ const Home = () => {
   
   function getTopArtistFrom() {
     if (!filter) return
+
+    let fromContext = getSearchContext(`topArtist-${filter}`)
+    if (fromContext != null) {
+      setTopArtist(fromContext)
+      return
+    }
+
     setLoading(true)
     getArtists(filter).then(res => {
       setTopArtist(res.data.items[0])
       setLoading(false)
+      setTopArtistContext(res.data.items[0], filter)
     })
   }
 
   function getTopSongFrom() {
     if (!filter) return
+
+    let fromContext = getSearchContext(`topSong-${filter}`)
+    if (fromContext != null) {
+      setTopSong(fromContext)
+      return
+    }
+
     setLoading(true)
     getTopSongs(filter).then(res => {
       setTopSong(res.data.items[0])
       setLoading(false)
+      setTopSongContext(res.data.items[0], filter)
     })
   }
 

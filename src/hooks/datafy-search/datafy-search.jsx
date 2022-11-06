@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import Loading from '../loading/loading'
 import Toast from '../toast/toast'
 import { getArtists, getArtistTopTracks, getTopSongs } from '../../client/spotify-client'
+import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } from '../../context/search-context'
 
 //icons
 import { HiPlay } from 'react-icons/hi'
@@ -74,11 +75,22 @@ const DatafySearch = () => {
 
   function getTopArtist(filter) {
     if (!filter) return;
+
     setLoadingArtist(true)
+    let fromContext = getSearchContext(`topArtistStats-${filter}`)
+    if (fromContext != null) {
+      setTimeout(() => {
+        setTopArtists(fromContext)
+        setLoadingArtist(false)
+      }, 300);
+      return
+    }
+
     getArtists(filter).then(res => {
       setTopArtists(res.data.items)
       getTopGenres(res.data.items)
       setLoadingArtist(false)
+      setTopArtistStatsContext(res.data.items, filter)
     })
     .catch((err) => {
       setLoadingArtist(false)
@@ -95,11 +107,23 @@ const DatafySearch = () => {
 
   function getTopSong(filter) {
     if (!filter) return;
+
     setloadingSong(true)
+    let fromContext = getSearchContext(`topSongStats-${filter}`)
+    if (fromContext != null) {
+      setTimeout(() => {
+        setTopSongs(fromContext)
+        setloadingSong(false)
+      }, 300);
+      return
+    }
+
+    
     getTopSongs(filter).then(res => {
       setTopSongs(res.data.items)
       setloadingSong(false)
       setDefaultGenre(false)
+      setTopSongStatsContext(res.data.items, filter)
     })
     .catch(() => {
       setloadingSong(false)

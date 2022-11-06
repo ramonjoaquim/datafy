@@ -159,7 +159,8 @@ button:disabled {
   .imageArtistSong {
     max-width: 150px;
     max-height: 150px;
-    margin-left: 145px;
+    margin-left: 100px;
+    margin-top: -25px;
     position: absolute;
   }
 
