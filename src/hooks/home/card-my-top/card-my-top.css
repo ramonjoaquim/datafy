@@ -1,7 +1,7 @@
 .card-box-my-top {
   background: #82c294;
   width: 400px;
-  height: 500px;
+  max-height: 700px;
   margin-top: 30px;
   margin-left: 0px;
   border-radius: 5px;
@@ -80,6 +80,51 @@
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
+.btn-generate {
+  margin-bottom: 20px;
+}
+
+button:disabled {
+  color: rgba(170, 165, 165, 0.74);
+  cursor: not-allowed;
+}
+
+.text-container-top-artist {
+  margin-bottom: -60px;
+  background-color: #008f59c4;
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.text-container-top-song {
+  margin-bottom: -90px;
+  background-color: #008f59c4;
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.imageArtistSong {
+  max-width: 150px;
+  max-height: 150px;
+  margin-left: 110px;
+  position: absolute;
+  margin-top: -33px;
+  border-radius: 10px;
+  box-shadow: 5px -5px 2px -1px whitesmoke;
+}
+
+.artist-text {
+  margin-top: -30px;
+}
+
+@-webkit-keyframes breath {
+  0%   {  background-size: 110% auto; }
+  50%  {  background-size: 140% auto; }
+  100% {  background-size: 110% auto; }      
+ }
+
 @keyframes slideUp {
 
   0%,
@@ -101,6 +146,21 @@
 @media screen and (max-width: 768px) {
   .card-box-my-top {
     width: 500px;
+  }
+
+  .text-container-top-artist {
+    margin-bottom: -100px !important;
+  }
+
+  .text-container-top-song {
+    margin-bottom: -120px;
+  }
+
+  .imageArtistSong {
+    max-width: 150px;
+    max-height: 150px;
+    margin-left: 145px;
+    position: absolute;
   }
 
 }

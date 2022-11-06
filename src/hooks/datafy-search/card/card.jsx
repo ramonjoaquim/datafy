@@ -25,7 +25,10 @@ const Card = (props) => {
 
   return (
     <section>
-          <div className={`card-container-home  ${props.blocked ? 'blocked-box' : ''}`} onClick={props.onClick}>
+          <div className={`card-container-home  ${props.blocked ? 'blocked-box' : ''}`} onClick={props.onClick} style={{
+            animation: 'slideUp 1s',
+            animationTimingFunction: 'ease-out',
+          }}>
             <div className='card-box-home'>
               <center>
                 <div className={`card-title-home font-${getRandomFont()}`}>{props.title}</div>
