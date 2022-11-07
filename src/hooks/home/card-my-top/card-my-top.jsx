@@ -213,12 +213,31 @@ const CardMyTop = (props) => {
       link.click();
     }
 
+    async function shareImage(data) {
+      const response = await fetch(data);
+      const blob = await response.blob();
+      const filesArray = [
+        new File(
+          [blob],
+          'datafy.png',
+          {
+            type: "image/png",
+            lastModified: new Date().getTime()
+          }
+       )
+      ];
+      const shareData = {
+        files: filesArray,
+      };
+      navigator.share(shareData);
+    }
+
     imageObj.setAttribute('crossOrigin', 'anonymous');
     imageObj.src = background;
     setTimeout(() => {
       const dataURL = canvas.toDataURL("image/png");
       try {
-        navigator.share(dataURL)
+        shareImage(dataURL)
       } catch (error) {
         download(dataURL, "datafy.png");
       }
