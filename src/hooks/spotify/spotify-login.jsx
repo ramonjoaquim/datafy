@@ -1,4 +1,4 @@
-import { setUserContext, clearUserContext, isUserLogged , setMarketContext } from '../../context/user-context'
+import { setUserContext, clearUserContext, isUserLogged , setMarketContext, setUserProfileImage, setUserDisplayName } from '../../context/user-context'
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { getMe } from '../../client/spotify-client';
@@ -47,7 +47,9 @@ const SpotifyLogin = (props) => {
 
   const getProfile = () => {
     getMe().then(res => {
-      setMarketContext(res.data.country)
+      setMarketContext(res?.data?.country)
+      setUserProfileImage(res?.data?.images[0].url)
+      setUserDisplayName(res?.data?.display_name)
     })
   }
 

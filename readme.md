@@ -20,6 +20,10 @@ npm config set registry https://registry.npmjs.org/
 ## resize backgrounds width 500 x height 899
 https://www.simpleimageresizer.com/upload
 
+## blur images
+
+https://pinetools.com/blur-image
+
 datafy
 
 https://developer.spotify.com/documentation/general/design-and-branding/

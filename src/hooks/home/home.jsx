@@ -63,7 +63,8 @@ const Home = () => {
           type={'artist'} 
           artistName={topArtist?.name}
           artistImage={topArtist?.images[0].url}
-          loading={loading}/>
+          loading={loading}
+          filter={filter}/>
 
         <CardMyTop 
           title={'My Top Song'} 
@@ -71,7 +72,8 @@ const Home = () => {
           songName={topSong?.name} 
           songArtist={topSong?.artists[0].name}
           songImage={topSong?.album.images[0].url}
-          loading={loading}/>
+          loading={loading}
+          filter={filter}/>
         
         {/* <Toast 
           show={notify}

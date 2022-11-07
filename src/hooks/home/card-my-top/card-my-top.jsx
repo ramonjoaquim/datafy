@@ -14,6 +14,8 @@ import glitch from '../../../assets/my-tops/glitch-background.jpg'
 import gray from '../../../assets/my-tops/gray-background.jpg'
 import xmas from '../../../assets/my-tops/xmas-background.jpg'
 import Loading from '../../loading/loading'
+import { getUserContext } from '../../../context/user-context'
+import Toast from '../../toast/toast'
 
 const CardMyTop = (props) => {
   const icon = {
@@ -28,6 +30,7 @@ const CardMyTop = (props) => {
   const [currentIndexBackground, setCurrentIndexBackground] = useState(0)
   const [backgroundNext, setbackgroundNext] = useState(true)
   const [backgroundPrev, setbackgroundPrev] = useState(true)
+  const [notify, setNotify] = useState(false)
 
   function getRandomFont() {
     return fonts[Math.floor(Math.random()*fonts.length)];
@@ -62,46 +65,159 @@ const CardMyTop = (props) => {
     })
   }, 4000);
 
-  function draw() {
+  function drawImageOnCanvas(src, width, height, radius = 10) {
+    const canvas = document.getElementById('idCanvas');
+    const ctx = canvas.getContext('2d');
+    const imageObj = new Image();
+
+    function roundedImage(x,y,width,height,radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    imageObj.onload = () => {
+      ctx.save();
+      roundedImage(width, height, imageObj.width/2, imageObj.height/2, radius);
+      ctx.clip();
+      ctx.drawImage(imageObj, width, height, imageObj.width/2, imageObj.height/2);
+      ctx.restore();
+    }
+
+    imageObj.setAttribute('crossOrigin', 'anonymous');
+    imageObj.src = src;
+
+    return imageObj
+  }
+
+  function drawImageOnCanvasProfile(src, width, height, radius = 50) {
+    const canvas = document.getElementById('idCanvas');
+    const ctx = canvas.getContext('2d');
+    const imageObj = new Image();
+
+    function roundedImageProfile(x,y,width,height,radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    imageObj.onload = () => {
+      let _width = 70
+      let _height = 70
+      ctx.save();
+      roundedImageProfile(width, height, _width, _height, radius);
+      ctx.clip();
+      ctx.drawImage(imageObj, width, height, _width, _height);
+      ctx.restore();
+    }
+
+    imageObj.setAttribute('crossOrigin', 'anonymous');
+    imageObj.src = src;
+
+    return imageObj
+  }
+
+  function formatFilterSelected() {
+    if (props.filter === 'short_term') {
+      return `Last month's`
+    } else if (props.filter === 'medium_term') {
+      return `Last 6 month's`
+    } else {
+      return 'All the time'
+    }
+  }
+
+  function draw(type) {
     const canvas = document.getElementById('idCanvas');
     const context = canvas.getContext('2d');
     const imageObj = new Image();
 
+    const centerVertically = 250;
+
     imageObj.onload = () => {
       context.drawImage(imageObj, 0, 0);
-      // context.textAlign = "center";
-      // context.textBaseline = "middle"; 
-
+      context.textAlign = "center";
+      context.textBaseline = "middle"; 
 
       //title Datafy
       context.font = "70px Dazzle";
       context.fillStyle = "whitesmoke";
-      context.fillText("DataFy", 150, 100);
+      context.fillText("DataFy", centerVertically, 40);
 
+      //userData
+      context.font = "20px Dazzle";
+      context.fillStyle = "whitesmoke";
+      context.fillText('of', centerVertically, 90);
+
+      context.font = "20px Dazzle";
+      context.fillStyle = "whitesmoke";
+      context.fillText(getUserContext().userDisplayName, centerVertically, 210);
+
+      let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 110, 30)
+      context.drawImage(userPhotoProfile, 500, 200)
+      console.log(userPhotoProfile)
+      console.log(canvas.toDataURL())
 
       //title Card type
-      context.font = "40px Dazzle";
-      context.fillText("My Top Artist", 130, 200);
+      context.font = "45px Dazzle";
+      context.fillText(type === 'artist' ? 'My Top Artist' : 'My Top Song', centerVertically, 270);
 
-      //title artist name
+      // title range filter 
+      context.font = "20px Dazzle";
+      context.fillText(`(${formatFilterSelected()})`, centerVertically, props.type === 'artist' ? 700 : 770);
+    
+      //title artist/song name
       context.font = "40px Dazzle";
-      context.fillText(props.artistName, 150, 300);
+      context.fillText(type === 'artist' ? props.artistName : props.songName, centerVertically, 650);
+
+      //text by band
+      if (props.type === 'song') {
+        context.font = "20px Dazzle";
+        context.fillText('By', centerVertically, 685);
+
+        context.font = "20px Dazzle";
+        context.fillText(props.songArtist, centerVertically, 720);
+      }
 
       //insert cover
+      let img = props.type === 'artist' ? drawImageOnCanvas(props.artistImage, 100, 300) : drawImageOnCanvas(props.songImage, 100, 300)
+      context.drawImage(img, 500, 500)
+
+      // text made by
+      context.font = "20px Dazzle";
+      context.fillText(`visit ${import.meta.env.VITE_AD_LINK}`, centerVertically, 850);
 
 
       //download
-      const canvas = document.getElementById('idCanvas');
+      // const canvas = document.getElementById('idCanvas');
       const dataURL = canvas.toDataURL();
 
-      function download(dataurl, filename) {
-        const link = document.createElement("a");
-        link.href = dataurl;
-        link.download = filename;
-        link.click();
-      }
+      // console.log(dataURL)
+
+      // function download(dataurl, filename) {
+      //   const link = document.createElement("a");
+      //   link.href = dataurl;
+      //   link.download = filename;
+      //   link.click();
+      // }
       
-      download(dataURL, "datafy.png");
+      // download(dataURL, "datafy.png");
     }
 
     imageObj.setAttribute('crossOrigin', 'anonymous');
@@ -109,7 +225,11 @@ const CardMyTop = (props) => {
 }
 
   function generate() {
-    draw()
+    if (!props.filter) {
+      setNotify(true)
+      return
+    }
+    draw(props.type)
   }
 
   return (
@@ -161,8 +281,14 @@ const CardMyTop = (props) => {
       <canvas id="idCanvas" width="500" height="899" style={{
         display: 'none',
         width: '500px',
-        height: '500px'}}>
-      </canvas>  
+        height: '899px'}}>
+      </canvas> 
+      <Toast 
+          show={notify}
+          setNotify={setNotify}
+          type={'warn'}
+          title={'Ops'}
+          message={'Select a period'} /> 
     </div>
   )
 }
