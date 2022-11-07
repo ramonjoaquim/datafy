@@ -17,6 +17,9 @@ npm config set registry https://registry.npmjs.org/
 # github pages
 
 
+## resize backgrounds width 500 x height 899
+https://www.simpleimageresizer.com/upload
+
 datafy
 
 https://developer.spotify.com/documentation/general/design-and-branding/

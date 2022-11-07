@@ -62,6 +62,56 @@ const CardMyTop = (props) => {
     })
   }, 4000);
 
+  function draw() {
+    const canvas = document.getElementById('idCanvas');
+    const context = canvas.getContext('2d');
+    const imageObj = new Image();
+
+    imageObj.onload = () => {
+      context.drawImage(imageObj, 0, 0);
+      // context.textAlign = "center";
+      // context.textBaseline = "middle"; 
+
+
+      //title Datafy
+      context.font = "70px Dazzle";
+      context.fillStyle = "whitesmoke";
+      context.fillText("DataFy", 150, 100);
+
+
+      //title Card type
+      context.font = "40px Dazzle";
+      context.fillText("My Top Artist", 130, 200);
+
+      //title artist name
+      context.font = "40px Dazzle";
+      context.fillText(props.artistName, 150, 300);
+
+      //insert cover
+
+
+      //download
+      const canvas = document.getElementById('idCanvas');
+      const dataURL = canvas.toDataURL();
+
+      function download(dataurl, filename) {
+        const link = document.createElement("a");
+        link.href = dataurl;
+        link.download = filename;
+        link.click();
+      }
+      
+      download(dataURL, "datafy.png");
+    }
+
+    imageObj.setAttribute('crossOrigin', 'anonymous');
+    imageObj.src = background;
+}
+
+  function generate() {
+    draw()
+  }
+
   return (
     <div className='card-box-my-top' style={{
       backgroundImage: `url(${background})`,
@@ -106,8 +156,13 @@ const CardMyTop = (props) => {
           </center>
       }
       <center>
-        <button type='button' className='btn btn-generate'>Generate</button>
+        <button type='button' className='btn btn-generate' onClick={() => generate()}>Generate</button>
       </center>
+      <canvas id="idCanvas" width="500" height="899" style={{
+        display: 'none',
+        width: '500px',
+        height: '500px'}}>
+      </canvas>  
     </div>
   )
 }
