@@ -119,3 +119,10 @@
 	  transform: translateX(100%);
 	}
 }
+
+@media screen and (max-width: 768px) {
+  
+  .notification {
+    margin: 0 -19px 6px;
+  }
+}

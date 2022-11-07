@@ -9,81 +9,81 @@ import './home.css'
 
 
 const Home = () => {
-  const [filter, setFilter] = useState('')
-  const [topArtist, setTopArtist] = useState()
-  const [topSong, setTopSong] = useState()
-  const [loading, setLoading] = useState(false)
+    const [filter, setFilter] = useState('')
+    const [topArtist, setTopArtist] = useState()
+    const [topSong, setTopSong] = useState()
+    const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    getTopArtistFrom()
-    getTopSongFrom()
-  }, [filter])
-  
-  function getTopArtistFrom() {
-    if (!filter) return
+    useEffect(() => {
+      getTopArtistFrom()
+      getTopSongFrom()
+    }, [filter])
 
-    let fromContext = getSearchContext(`topArtist-${filter}`)
-    if (fromContext != null) {
-      setTopArtist(fromContext)
-      return
-    }
+    const getTopArtistFrom = () => {
+      if (!filter) return
 
-    setLoading(true)
-    getArtists(filter).then(res => {
-      setTopArtist(res.data.items[0])
-      setLoading(false)
-      setTopArtistContext(res.data.items[0], filter)
-    })
-  }
+      let fromContext = getSearchContext(`topArtist-${filter}`)
+      if (fromContext != null) {
+        setTopArtist(fromContext)
+        return
+      }
 
-  function getTopSongFrom() {
-    if (!filter) return
+      setLoading(true)
+      getArtists(filter).then(res => {
+        setTopArtist(res.data.items[0])
+        setLoading(false)
+        setTopArtistContext(res.data.items[0], filter)
+      })
+    };
 
-    let fromContext = getSearchContext(`topSong-${filter}`)
-    if (fromContext != null) {
-      setTopSong(fromContext)
-      return
-    }
+    const getTopSongFrom = () => {
+      if (!filter) return
 
-    setLoading(true)
-    getTopSongs(filter).then(res => {
-      setTopSong(res.data.items[0])
-      setLoading(false)
-      setTopSongContext(res.data.items[0], filter)
-    })
-  }
+      let fromContext = getSearchContext(`topSong-${filter}`)
+      if (fromContext != null) {
+        setTopSong(fromContext)
+        return
+      }
 
-  return (
-    <>
-      <Navbar />
-      <RadioSwitch setFilter={setFilter} />
-      <div className='card-container'>
-        <CardMyTop 
-          title={'My Top Arstist'} 
-          type={'artist'} 
-          artistName={topArtist?.name}
-          artistImage={topArtist?.images[0].url}
-          loading={loading}
-          filter={filter}/>
+      setLoading(true)
+      getTopSongs(filter).then(res => {
+        setTopSong(res.data.items[0])
+        setLoading(false)
+        setTopSongContext(res.data.items[0], filter)
+      })
+    };
 
-        <CardMyTop 
-          title={'My Top Song'} 
-          type={'song'} 
-          songName={topSong?.name} 
-          songArtist={topSong?.artists[0].name}
-          songImage={topSong?.album.images[0].url}
-          loading={loading}
-          filter={filter}/>
-        
-        {/* <Toast 
-          show={notify}
-          setNotify={setNotify}
-          type={'hi'}
-          title={'Hi!'}
-          message={'Select a period (last month / 6 months / all time)'} /> */}
-      </div>
-    </>
-  )
+    return (
+      <>
+        <Navbar />
+        <RadioSwitch setFilter={setFilter} />
+        <div className='card-container'>
+          <CardMyTop 
+            title={'My Top Arstist'} 
+            type={'artist'} 
+            artistName={topArtist?.name}
+            artistImage={topArtist?.images[0].url}
+            loading={loading}
+            filter={filter}/>
+
+          <CardMyTop 
+            title={'My Top Song'} 
+            type={'song'} 
+            songName={topSong?.name} 
+            songArtist={topSong?.artists[0].name}
+            songImage={topSong?.album.images[0].url}
+            loading={loading}
+            filter={filter}/>
+          
+          {/* <Toast 
+            show={notify}
+            setNotify={setNotify}
+            type={'hi'}
+            title={'Hi!'}
+            message={'Select a period (last month / 6 months / all time)'} /> */}
+        </div>
+      </>
+    )
 }
 
 export default Home

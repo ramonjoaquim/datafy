@@ -5,6 +5,9 @@
   justify-content: flex-start;
 }
 
+.card-container-home:active {
+  transform: scale(0.98);
+}
 .card-box-home {
   background: #82c294;
   width: 200px;

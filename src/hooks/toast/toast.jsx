@@ -24,35 +24,32 @@ const Toast = props => {
     hi: <ImHappy size={35}/>,
   }
 
-    if (props.autoCloseable) setTimeout(() => {
-      if (props.show) props.setNotify(false)
-    }, 5000); else setTimeout(() => {
-      if (props.show) props.setNotify(false)
-    }, 10_000);
+  if (props.autoCloseable) setTimeout(() => {
+    if (props.show) props.setNotify(false)
+  }, 5000); else setTimeout(() => {
+    if (props.show) props.setNotify(false)
+  }, 10_000);
 
-    return (
-        <>
-            <div className={`notification-container ${props.show ? 'top-right' : 'top-left'}`} style={{
-              visibility: props.show ? 'visible' : 'hidden'
-              // visibility: 'visible'
-            }}>
-              <div 
-                  className={`notification toast top-right`}
-                  style={{ backgroundColor: props.type ? background[props.type] : background.success }}>
-                  <button onClick={() => props.setNotify(false)}>
-                      <CgClose/>
-                  </button>
-                  <div className="notification-image">
-                    {icons[props.type]}
-                  </div>
-                  <div>
-                      <p className="notification-title">{props.title || ''}</p>
-                      <p className="notification-message">{props.message || ''}</p>
-                  </div>
-              </div>
+  return (
+      <div className={`notification-container ${props.show ? 'top-right' : 'top-left'}`} style={{
+        visibility: props.show ? 'visible' : 'hidden'
+        }}>
+        <div 
+            className={`notification toast top-right`}
+            style={{ backgroundColor: props.type ? background[props.type] : background.success }}>
+            <button onClick={() => props.setNotify(false)}>
+                <CgClose/>
+            </button>
+            <div className="notification-image">
+              {icons[props.type]}
             </div>
-        </>
-    );
+            <div>
+                <p className="notification-title">{props.title || ''}</p>
+                <p className="notification-message">{props.message || ''}</p>
+            </div>
+        </div>
+      </div>
+  );
 }
 
 export default Toast;

@@ -58,7 +58,6 @@ const SpotifyLogin = (props) => {
   };
 
   return (
-    <>
     <button
       className='button-login'
       type='button'
@@ -67,7 +66,6 @@ const SpotifyLogin = (props) => {
       onMouseLeave={props.changeLogoOut}>
       Login to Spotify
     </button>
-    </>
   )
 
 }

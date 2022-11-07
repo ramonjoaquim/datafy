@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
 import { GiSoundWaves } from 'react-icons/gi'
 import { BsPersonLinesFill } from 'react-icons/bs'
+import { RiShareFill } from  'react-icons/ri'
 
-//background
+//backgrounds
 import black from '../../../assets/my-tops/black-background.jpg'
 import black02 from '../../../assets/my-tops/black-02-background.jpg'
 import blue from '../../../assets/my-tops/blue-background.jpg'
@@ -118,6 +119,7 @@ const CardMyTop = (props) => {
     }
 
     imageObj.onload = () => {
+      console.log('load profile')
       let _width = 70
       let _height = 70
       ctx.save();
@@ -135,11 +137,11 @@ const CardMyTop = (props) => {
 
   function formatFilterSelected() {
     if (props.filter === 'short_term') {
-      return `Last month's`
+      return `Last month`
     } else if (props.filter === 'medium_term') {
       return `Last 6 month's`
     } else {
-      return 'All the time'
+      return 'All time'
     }
   }
 
@@ -151,6 +153,7 @@ const CardMyTop = (props) => {
     const centerVertically = 250;
 
     imageObj.onload = () => {
+      console.log('load backgounr')
       context.drawImage(imageObj, 0, 0);
       context.textAlign = "center";
       context.textBaseline = "middle"; 
@@ -171,8 +174,6 @@ const CardMyTop = (props) => {
 
       let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 110, 30)
       context.drawImage(userPhotoProfile, 500, 200)
-      console.log(userPhotoProfile)
-      console.log(canvas.toDataURL())
 
       //title Card type
       context.font = "45px Dazzle";
@@ -203,25 +204,25 @@ const CardMyTop = (props) => {
       context.font = "20px Dazzle";
       context.fillText(`visit ${import.meta.env.VITE_AD_LINK}`, centerVertically, 850);
 
+    }
 
-      //download
-      // const canvas = document.getElementById('idCanvas');
-      const dataURL = canvas.toDataURL();
-
-      // console.log(dataURL)
-
-      // function download(dataurl, filename) {
-      //   const link = document.createElement("a");
-      //   link.href = dataurl;
-      //   link.download = filename;
-      //   link.click();
-      // }
-      
-      // download(dataURL, "datafy.png");
+    function download(dataurl, filename) {
+      const link = document.createElement("a");
+      link.href = dataurl;
+      link.download = filename;
+      link.click();
     }
 
     imageObj.setAttribute('crossOrigin', 'anonymous');
     imageObj.src = background;
+    setTimeout(() => {
+      const dataURL = canvas.toDataURL("image/png");
+      try {
+        navigator.share(dataURL)
+      } catch (error) {
+        download(dataURL, "datafy.png");
+      }
+    }, 2000);
 }
 
   function generate() {
@@ -248,7 +249,8 @@ const CardMyTop = (props) => {
         : <center>
             <div className={(props.songImage || props.artistImage) ? props.type === 'artist' ? 'text-container-top-artist' : 'text-container-top-song' : ''}>
               <span>
-                <h1 className='font-bunge'>{props.artistName || props.songName}</h1>
+                <h1 className='font-bunge' style={{fontSize: '200%'}}>{props.artistName || props.songName}</h1>
+                {/* <h1 className='font-bunge' style={{fontSize: '200%'}}>wait a minute wait a minute wait a minute wait a minute wait a minute </h1> */}
               </span>
               <span>
                 <h3 className='font-bunge artist-text'>{props.songArtist}</h3>
@@ -276,13 +278,14 @@ const CardMyTop = (props) => {
           </center>
       }
       <center>
-        <button type='button' className='btn btn-generate' onClick={() => generate()}>Generate</button>
+        <button type='button' className='btn btn-generate' onClick={() => generate()} title="Share"><RiShareFill size={30}/></button>
       </center>
       <canvas id="idCanvas" width="500" height="899" style={{
         display: 'none',
         width: '500px',
         height: '899px'}}>
       </canvas> 
+      <img id="imgRendered" width={500} height={899} style={{display: 'none'}}></img>
       <Toast 
           show={notify}
           setNotify={setNotify}

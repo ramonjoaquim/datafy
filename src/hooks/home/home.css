@@ -53,10 +53,6 @@
   border: none;
 }
 
-.btn:hover {
-  transform: scale(1.1); 
-}
-
 @media screen and (max-width: 768px) {
   .card-box {
     width: 500px;

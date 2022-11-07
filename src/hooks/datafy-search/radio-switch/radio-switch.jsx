@@ -1,10 +1,9 @@
 import './radio-switch.css'
 
 const RadioSwitch = (props) => {
-
-    function onSelect(value) {
+    const onSelect = value => {
       props.setFilter(value)
-    }
+    };
 
     return (
       <form className='form'>

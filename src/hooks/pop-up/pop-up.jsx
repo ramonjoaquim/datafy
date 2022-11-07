@@ -13,7 +13,7 @@ const PopUp = (props) => {
     }
   }
   
-  function hidePopup() {
+  const hidePopup = () => {
     props.setPopup(false)
     setFirstHide(false)
   }
