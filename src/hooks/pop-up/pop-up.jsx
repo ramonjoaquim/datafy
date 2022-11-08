@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { getFont } from '../../context/app-context';
 import './pop-up.css'
 
 
@@ -29,7 +30,7 @@ const PopUp = (props) => {
         <div>
           <center>
           <header>
-            <h2 className='title-popup font-bunge'>{props.title}</h2>
+            <h2 className={`title-popup font-${getFont()}`}>{props.title}</h2>
           </header>
           </center>
           <main>

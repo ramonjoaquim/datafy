@@ -7,7 +7,6 @@ import { setTopArtistContext, setTopSongContext, getSearchContext } from '../../
 
 import './home.css'
 
-
 const Home = () => {
     const [filter, setFilter] = useState('')
     const [topArtist, setTopArtist] = useState()

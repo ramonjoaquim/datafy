@@ -11,6 +11,7 @@ import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } fr
 
 //icons
 import { HiPlay } from 'react-icons/hi'
+import { getFont } from '../../context/app-context'
 
 const DatafySearch = () => {
     const genreNames = ['Pop', 'Rock', 'Eletronic', 'Indie', 'Indie Rock', 'lofi']
@@ -45,7 +46,7 @@ const DatafySearch = () => {
             {Array.apply(0, topTracksArtist).map((track) => 
               <>
               <div className='track-row'>
-                <span className='top-tracks-text font-bunge'>{track.name}</span>
+                <span className={`top-tracks-text font-${getFont()}`}>{track.name}</span>
                 <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
                   <HiPlay size={30} className='icon-play' title='Listen on Spotify'/>
                 </a>

@@ -17,6 +17,7 @@ import xmas from '../../../assets/my-tops/xmas-background.jpg'
 import Loading from '../../loading/loading'
 import { getUserContext } from '../../../context/user-context'
 import Toast from '../../toast/toast'
+import { getFont } from '../../../context/app-context'
 
 const CardMyTop = (props) => {
   const icon = {
@@ -24,18 +25,14 @@ const CardMyTop = (props) => {
     song: <GiSoundWaves size={100} className='icon-type-my-top'/>
   }
 
-  const fonts = ['bunnge', 'lecker', 'megrim', 'nabla', 'rennie', 'rubik', 'syncopate']
   const backgrounds = [black, black02, blue, blue02, glitch, gray, xmas]
+  const FONT = getFont()
 
   const [background, setBackground] = useState(backgrounds[0])
   const [currentIndexBackground, setCurrentIndexBackground] = useState(0)
   const [backgroundNext, setbackgroundNext] = useState(true)
   const [backgroundPrev, setbackgroundPrev] = useState(true)
   const [notify, setNotify] = useState(false)
-
-  function getRandomFont() {
-    return fonts[Math.floor(Math.random()*fonts.length)];
-  }
 
   function changeBackground(position) {
       let index = currentIndexBackground
@@ -159,49 +156,49 @@ const CardMyTop = (props) => {
       context.textBaseline = "middle"; 
 
       //title Datafy
-      context.font = "70px Dazzle";
+      context.font = `70px ${FONT}`;
       context.fillStyle = "whitesmoke";
-      context.fillText("DataFy", centerVertically, 40);
+      context.fillText("Datafy", centerVertically, 80);
 
       //userData
-      context.font = "20px Dazzle";
+      context.font = `20px ${FONT}`;
       context.fillStyle = "whitesmoke";
-      context.fillText('of', centerVertically, 90);
+      context.fillText('of', centerVertically, 120);
 
-      context.font = "20px Dazzle";
+      context.font = `20px ${FONT}`;
       context.fillStyle = "whitesmoke";
-      context.fillText(getUserContext().userDisplayName, centerVertically, 210);
+      context.fillText(getUserContext().userDisplayName, centerVertically, 230);
 
-      let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 110, 30)
+      let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 140, 30)
       context.drawImage(userPhotoProfile, 500, 200)
 
       //title Card type
-      context.font = "45px Dazzle";
-      context.fillText(type === 'artist' ? 'My Top Artist' : 'My Top Song', centerVertically, 270);
+      context.font = `45px ${FONT}`;
+      context.fillText(type === 'artist' ? 'My Top Artist' : 'My Top Song', centerVertically, 310);
 
       // title range filter 
-      context.font = "20px Dazzle";
-      context.fillText(`(${formatFilterSelected()})`, centerVertically, props.type === 'artist' ? 700 : 770);
+      context.font = `20px ${FONT}`;
+      context.fillText(`(${formatFilterSelected()})`, centerVertically, props.type === 'artist' ? 770 : 800);
     
       //title artist/song name
-      context.font = "40px Dazzle";
-      context.fillText(type === 'artist' ? props.artistName : props.songName, centerVertically, 650);
+      context.font = `40px ${FONT}`;
+      context.fillText(type === 'artist' ? props.artistName : props.songName, centerVertically, 700);
 
       //text by band
       if (props.type === 'song') {
-        context.font = "20px Dazzle";
-        context.fillText('By', centerVertically, 685);
+        context.font = `20px ${FONT}`;
+        context.fillText('By', centerVertically, 740);
 
-        context.font = "20px Dazzle";
-        context.fillText(props.songArtist, centerVertically, 720);
+        context.font = `20px ${FONT}`;
+        context.fillText(props.songArtist, centerVertically, 770);
       }
 
       //insert cover
-      let img = props.type === 'artist' ? drawImageOnCanvas(props.artistImage, 100, 300) : drawImageOnCanvas(props.songImage, 100, 300)
+      let img = props.type === 'artist' ? drawImageOnCanvas(props.artistImage, 100, 350) : drawImageOnCanvas(props.songImage, 100, 350)
       context.drawImage(img, 500, 500)
 
       // text made by
-      context.font = "20px Dazzle";
+      context.font = `20px ${FONT}`;
       context.fillText(`visit ${import.meta.env.VITE_AD_LINK}`, centerVertically, 850);
 
     }
@@ -236,9 +233,10 @@ const CardMyTop = (props) => {
     imageObj.src = background;
     setTimeout(() => {
       const dataURL = canvas.toDataURL("image/png");
-      try {
+
+      if (navigator.share) {
         shareImage(dataURL)
-      } catch (error) {
+      } else {
         download(dataURL, "datafy.png");
       }
     }, 2000);
@@ -252,6 +250,7 @@ const CardMyTop = (props) => {
     draw(props.type)
   }
 
+ 
   return (
     <div className='card-box-my-top' style={{
       backgroundImage: `url(${background})`,
@@ -259,7 +258,7 @@ const CardMyTop = (props) => {
       animationTimingFunction: 'ease-out',
     }}>
       <center>
-        <div className={`card-title font-${getRandomFont()}`}>{props.title}</div>
+        <div className={`card-title font-${getFont()}`}>{props.title}</div>
       </center>
       {
       
@@ -268,11 +267,11 @@ const CardMyTop = (props) => {
         : <center>
             <div className={(props.songImage || props.artistImage) ? props.type === 'artist' ? 'text-container-top-artist' : 'text-container-top-song' : ''}>
               <span>
-                <h1 className='font-bunge' style={{fontSize: '200%'}}>{props.artistName || props.songName}</h1>
+                <h1 className={`font-${getFont()}`} style={{fontSize: '200%'}}>{props.artistName || props.songName}</h1>
                 {/* <h1 className='font-bunge' style={{fontSize: '200%'}}>wait a minute wait a minute wait a minute wait a minute wait a minute </h1> */}
               </span>
               <span>
-                <h3 className='font-bunge artist-text'>{props.songArtist}</h3>
+                <h3 className={`font-${getFont()} artist-text`}>{props.songArtist}</h3>
               </span>
             </div>
             <div className='arrows-change-background'>
@@ -299,12 +298,13 @@ const CardMyTop = (props) => {
       <center>
         <button type='button' className='btn btn-generate' onClick={() => generate()} title="Share"><RiShareFill size={30}/></button>
       </center>
-      <canvas id="idCanvas" width="500" height="899" style={{
-        display: 'none',
-        width: '500px',
-        height: '899px'}}>
-      </canvas> 
-      <img id="imgRendered" width={500} height={899} style={{display: 'none'}}></img>
+      <canvas id="idCanvas" width="500" height="899" 
+              style={{
+                display: 'none',
+                width: '500px',
+                height: '899px'
+              }} /> 
+      <img id="imgRendered" width={500} height={899} style={{display: 'none'}} />
       <Toast 
           show={notify}
           setNotify={setNotify}

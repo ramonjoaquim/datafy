@@ -1,16 +1,12 @@
 import { BsPerson } from 'react-icons/bs'
 import { GiMusicSpell } from 'react-icons/gi'
 import { SiYoutubemusic } from 'react-icons/si'
+import { getFont } from '../../../context/app-context'
 
 import './card.css'
 
 const Card = (props) => {
-    const fonts = ['bunnge', 'lecker', 'megrim', 'nabla', 'rennie', 'rubik', 'syncopate']
     const colors = ['#FCDDB0', '#D58BDD', '#81C6E8', '#ABD9FF', '#FD841F', '#C8B6E2', '#D3EBCD', '#377D71', '#839AA8', '#FBF46D']
-
-    const getRandomFont = () => {
-      return fonts[Math.floor(Math.random()*fonts.length)];
-    };
 
     const getRandomColors = () => {
       return colors[Math.floor(Math.random()*colors.length)];
@@ -30,7 +26,7 @@ const Card = (props) => {
             }}>
               <div className='card-box-home'>
                 <center>
-                  <div className={`card-title-home font-${getRandomFont()}`}>{props.title}</div>
+                  <div className={`card-title-home font-${getFont()}`}>{props.title}</div>
                   <small className='band-name' style={{display: props.nameBand ?? 'none'}}>({props.nameBand})</small>
                 </center>
                 <center>
