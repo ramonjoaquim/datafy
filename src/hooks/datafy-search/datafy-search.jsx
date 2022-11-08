@@ -1,7 +1,7 @@
 import Navbar from '../navbar/navbar'
 import Card from './card/card'
 import './datafy-search.css'
-import RadioSwitch from './radio-switch/radio-switch'
+import RadioSwitch from '../radio-switch/radio-switch'
 import PopUp from '../pop-up/pop-up'
 import { useState, useEffect } from 'react'
 import Loading from '../loading/loading'

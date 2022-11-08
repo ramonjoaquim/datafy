@@ -1,5 +1,5 @@
 import Navbar from '../navbar/navbar'
-import RadioSwitch from '../datafy-search/radio-switch/radio-switch'
+import RadioSwitch from '../radio-switch/radio-switch'
 import CardMyTop from './card-my-top/card-my-top'
 import { useState, useEffect } from 'react'
 import { getArtists, getTopSongs } from '../../client/spotify-client'
