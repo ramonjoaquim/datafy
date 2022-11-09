@@ -28,3 +28,17 @@
 - https://developer.spotify.com/documentation/general/design-and-branding/
 
 
+## TODO
+
+- [ ] Encrypt localStorage
+- [ ] Handle token expired
+- [ ] Localization with i18n
+- [ ] About Page
+- [ ] Privacy Policy Page
+
+## Comming Features
+
+- (Datafy stats) Play song on Spotify on click on top song card
+- (Home) Share top Song's
+- (Home) Share top Genre's
+- (Home) Share top Artist's
