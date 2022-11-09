@@ -49,7 +49,7 @@ export function App() {
 
   return (
     <>
-      <BrowserRouter basename='/datafy/'>
+      <BrowserRouter basename='/'>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="*" element={<Login />} />
