@@ -26,3 +26,6 @@ dist-ssr
 
 # Custom
 *.local
+
+# Local Netlify folder
+.netlify
