@@ -1,31 +1,30 @@
-vite for build
+# Datafy 
 
-parcel for compile
+[![Netlify Status](https://api.netlify.com/api/v1/badges/12c5ea01-db50-43ad-a163-226720495f16/deploy-status)](https://app.netlify.com/sites/datafy-stats/deploys)
 
+## Tools used
 
-collors pallete
+- vite for build
 
-https://paletadecolores.online/pt/colors/b0f2c2/
+- parcel for compile
 
-
-nav bar ideia
-https://www.geeksforgeeks.org/create-a-responsive-navbar-using-reactjs/
-
-## registry
-npm config set registry https://registry.npmjs.org/
-
-# github pages
+- [collors pallete](https://paletadecolores.online/pt/colors/b0f2c2/)
 
 
-## resize backgrounds width 500 x height 899
-https://www.simpleimageresizer.com/upload
+## Ideia
+ - nav bar
+    - https://www.geeksforgeeks.org/create-a-responsive-navbar-using-reactjs/
 
-## blur images
+## Resize backgrounds 
+- width 500 x height 899
+  - https://www.simpleimageresizer.com/upload
 
-https://pinetools.com/blur-image
+## Blur images
 
-datafy
+- https://pinetools.com/blur-image
 
-https://developer.spotify.com/documentation/general/design-and-branding/
+
+## Following guide
+- https://developer.spotify.com/documentation/general/design-and-branding/
 
 
