@@ -67,7 +67,7 @@ export function App() {
             marginTop: '20px',
             justifyContent: 'center',
           }}>
-          Developed by Ramon J. Limas
+          Developed By Ramon J. Limas
           <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className='icon-footer'>
             <SlSocialLinkedin size={20}/>
           </a>

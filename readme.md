@@ -30,8 +30,8 @@
 
 ## TODO
 
-- [ ] Encrypt localStorage
-- [ ] Handle token expired
+- [x] Encrypt localStorage
+- [x] Handle token expired
 - [ ] Localization with i18n
 - [ ] About Page
 - [ ] Privacy Policy Page

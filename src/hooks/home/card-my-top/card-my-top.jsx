@@ -33,6 +33,7 @@ const CardMyTop = (props) => {
   const [backgroundNext, setbackgroundNext] = useState(true)
   const [backgroundPrev, setbackgroundPrev] = useState(true)
   const [notify, setNotify] = useState(false)
+  const [loadingShare, setLoadingShare] = useState(false)
 
   function changeBackground(position) {
       let index = currentIndexBackground
@@ -70,7 +71,8 @@ const CardMyTop = (props) => {
       setNotify(true)
       return
     }
-    drawCanvas(props, background)
+    setLoadingShare(true)
+    drawCanvas(props, background, setLoadingShare)
   }
  
   return (
@@ -116,7 +118,7 @@ const CardMyTop = (props) => {
           </center>
       }
       <center>
-        <button type='button' className='btn btn-generate' onClick={() => generate()} title="Share"><RiShareFill size={30}/></button>
+        <button type='button' className='btn btn-generate' disabled={loadingShare} onClick={() => generate()} title="Share"><RiShareFill size={30}/></button>
       </center>
       <canvas id="idCanvas" width="500" height="899" 
               style={{

@@ -6,7 +6,7 @@ import PopUp from '../pop-up/pop-up'
 import { useState, useEffect } from 'react'
 import Loading from '../loading/loading'
 import Toast from '../toast/toast'
-import { getArtists, getArtistTopTracks, getTopSongs } from '../../client/spotify-client'
+import { getArtists, getArtistTopTracks, getTopSongs, playSongFromAlbum } from '../../client/spotify-client'
 import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } from '../../context/search-context'
 
 //icons
@@ -32,12 +32,23 @@ const DatafySearch = () => {
     const [content, setContent] = useState()
     const [notify, setNotify] = useState(false)
     const [titleNotify, setTitleNotify] = useState()
+    const [messageNotify, setMessageNotify] = useState()
+    const [song, setSong] = useState()
 
     useEffect(() => {
       getTopArtist(filter)
       getTopSong(filter)
     }, [filter])
 
+
+    useEffect(() => {
+      if (defaultGenre) return;
+      console.log(song)
+      playSongFromAlbum(song?.album?.uri, song?.track_number)
+      setTitleNotify('Now playing...')
+      setMessageNotify(`${song?.name} - ${song?.artists[0]?.name}`)
+      setNotify(true)
+    }, [song])
 
     useEffect(() => {
       let cont = <>
@@ -96,11 +107,6 @@ const DatafySearch = () => {
         setLoadingArtist(false)
         setTopArtistStatsContext(res.data.items, filter)
       })
-      .catch((err) => {
-        setLoadingArtist(false)
-        setTitleNotify(err?.response?.data?.error?.message)  
-        setNotify(true)
-      })
     };
 
     const getTopTracksArtist = idArtist => {
@@ -121,16 +127,12 @@ const DatafySearch = () => {
         }, 300);
         return
       }
-
       
       getTopSongs(filter).then(res => {
         setTopSongs(res.data.items)
         setloadingSong(false)
         setDefaultGenre(false)
         setTopSongStatsContext(res.data.items, filter)
-      })
-      .catch(() => {
-        setloadingSong(false)
       })
     };
 
@@ -151,6 +153,7 @@ const DatafySearch = () => {
             <section className='box-section'>
             {loadingArtist ? <Loading/> : Array.apply(0, topArtists).map((artist) => 
                <Card title={artist.name ?? getRandomBandName()} 
+                    clickeable={true}
                     type='artist' 
                     imageUrl={artist.id ? artist.images[0].url : null} 
                     blocked={!artist.id}
@@ -161,8 +164,12 @@ const DatafySearch = () => {
             <section className='box-section'>
             {loadingSong ? <Loading/> : Array.apply(0, topSongs).map((song) => 
                <Card title={song.name ?? getRandomSongsdName()} 
+                    clickeable={false}
                     nameBand={song.artists ? song.artists[0].name : null}
                     type='song' 
+                    song={song}
+                    setSong={setSong}
+                    playMusic={true}
                     imageUrl={song.id ? song.album.images[0].url : null} 
                     blocked={!song.id}/>
              )}
@@ -178,9 +185,9 @@ const DatafySearch = () => {
           <Toast 
             show={notify}
             setNotify={setNotify}
-            type={'error'}
+            type={'info'}
             title={titleNotify}
-            message={'Try login again'} />
+            message={messageNotify} />
 
           <PopUp 
             show={popup} 

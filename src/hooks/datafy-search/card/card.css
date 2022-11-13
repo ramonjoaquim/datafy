@@ -5,6 +5,13 @@
   justify-content: flex-start;
 }
 
+.card-container-home-disabled-click {
+  display: flex;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .card-container-home:active {
   transform: scale(0.98);
 }
@@ -58,4 +65,20 @@
   max-width: 50% !important;
   max-height: 110px;
   border-radius: 7px;
+}
+
+.container-icon-player {
+  color: #2a4436;
+  text-align: end;
+  margin-top: -45px;
+  cursor: pointer;
+}
+
+.container-icon-player:hover {
+  color: whitesmoke;
+}
+
+.container-icon-player:active {
+  transform: scale(0.98);
+  cursor: pointer;
 }

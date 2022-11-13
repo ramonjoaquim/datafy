@@ -87,7 +87,7 @@ function drawImageOnCanvasProfile(src, width, height, radius = 50) {
 
 function formatFilterSelected(props) {
   if (props.filter === 'short_term') {
-    return `Last month`
+    return `This month`
   } else if (props.filter === 'medium_term') {
     return `Last 6 month's`
   } else {
@@ -95,7 +95,7 @@ function formatFilterSelected(props) {
   }
 }
 
-function drawCanvas(props, background) {
+function drawCanvas(props, background, setLoadingShare) {
   const canvas = document.getElementById('idCanvas');
   const context = canvas.getContext('2d');
   const imageObj = new Image();
@@ -163,6 +163,7 @@ function drawCanvas(props, background) {
     } else {
       download(dataURL, "datafy.png");
     }
+    setLoadingShare(false)
   }, 2000);
 }
 
