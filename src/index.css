@@ -35,6 +35,13 @@
   color: 396a49;
 }
 
+body{
+  -webkit-user-select:none;
+  -moz-user-select:-moz-none;
+  -ms-user-select:none;
+  user-select:none
+}
+
 @media screen and (max-width: 768px) {
   .footer {
     /* margin-left: -70px; */

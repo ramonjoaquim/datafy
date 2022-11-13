@@ -8,7 +8,7 @@
 
 .top-right {
 	top: 12px;
-	right: 12px;
+	right: 1px;
 	transition: transform .6s ease-in-out;
 	animation: toast-in-right .7s;
 }
@@ -123,6 +123,7 @@
 @media screen and (max-width: 768px) {
   
   .notification {
-    margin: 0 -19px 6px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }

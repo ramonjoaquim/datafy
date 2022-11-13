@@ -43,7 +43,6 @@ const DatafySearch = () => {
 
     useEffect(() => {
       if (defaultGenre) return;
-      console.log(song)
       playSongFromAlbum(song?.album?.uri, song?.track_number)
       setTitleNotify('Now playing...')
       setMessageNotify(`${song?.name} - ${song?.artists[0]?.name}`)
