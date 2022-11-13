@@ -73,13 +73,33 @@ const Home = () => {
             songImage={topSong?.album.images[0].url}
             loading={loading}
             filter={filter}/>
-          
-          {/* <Toast 
-            show={notify}
-            setNotify={setNotify}
-            type={'hi'}
-            title={'Hi!'}
-            message={'Select a period (last month / 6 months / all time)'} /> */}
+
+          <CardMyTop 
+            title={'My Top 10 Songs'} 
+            type={'topSongs'} 
+            songName={topSong?.name} 
+            songArtist={topSong?.artists[0].name}
+            songImage={topSong?.album.images[0].url}
+            loading={loading}
+            filter={filter}/>
+
+          <CardMyTop 
+            title={'My Top 10 Artists'} 
+            type={'topArtists'} 
+            songName={topSong?.name} 
+            songArtist={topSong?.artists[0].name}
+            songImage={topSong?.album.images[0].url}
+            loading={loading}
+            filter={filter}/>
+
+          <CardMyTop 
+            title={"My Top 10 Genre's"} 
+            type={'topGenres'} 
+            songName={topSong?.name} 
+            songArtist={topSong?.artists[0].name}
+            songImage={topSong?.album.images[0].url}
+            loading={loading}
+            filter={filter}/>
         </div>
       </>
     )
