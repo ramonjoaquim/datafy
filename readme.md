@@ -31,14 +31,14 @@
 ## TODO
 
 - [x] Encrypt localStorage
-- [x] Handle token expired
+- [ ] Handle token expired
 - [ ] Localization with i18n
 - [ ] About Page
 - [ ] Privacy Policy Page
 
 ## Comming Features
 
-- (Datafy stats) Play song on Spotify on click on top song card
+- (Datafy stats) Play song on Spotify on click on top song card [DONE]
 - (Home) Share top Song's
 - (Home) Share top Genre's
 - (Home) Share top Artist's

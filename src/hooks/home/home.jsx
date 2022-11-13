@@ -8,7 +8,7 @@ import { setTopArtistContext, setTopSongContext, getSearchContext } from '../../
 import './home.css'
 
 const Home = () => {
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState('short_term')
     const [topArtist, setTopArtist] = useState()
     const [topSong, setTopSong] = useState()
     const [loading, setLoading] = useState(false)
@@ -55,7 +55,7 @@ const Home = () => {
     return (
       <>
         <Navbar />
-        <RadioSwitch setFilter={setFilter} />
+        <RadioSwitch setFilter={setFilter} value={filter}/>
         <div className='card-container'>
           <CardMyTop 
             title={'My Top Arstist'} 

@@ -8,7 +8,7 @@ const RadioSwitch = (props) => {
     return (
       <form className='form'>
       <label>
-        <input type="radio" name="filter" value="short_term" onClick={() => onSelect('short_term')}/>
+        <input type="radio" name="filter" value="short_term" checked={props.value === 'short_term'} onClick={() => onSelect('short_term')}/>
         <span>This Month</span>
       </label>
       <label>

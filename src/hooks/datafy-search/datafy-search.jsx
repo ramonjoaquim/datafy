@@ -23,7 +23,7 @@ const DatafySearch = () => {
     const [defaultGenre, setDefaultGenre] = useState(true)
     const [topSongs, setTopSongs] = useState([1,2,3,4])
     const [topTracksArtist, setTopTracksArtist] = useState([])
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState('short_term')
     const [loadingArtist, setLoadingArtist] = useState(false)
     const [loadingSong, setloadingSong] = useState(false)
     const [loadingTopTracksArtists, setLoadingTopTracksArtists] = useState(false)
@@ -146,7 +146,7 @@ const DatafySearch = () => {
     return (
       <>
           <Navbar />
-          <RadioSwitch setFilter={setFilter}/>
+          <RadioSwitch setFilter={setFilter} value={filter}/>
           <div className='box-home'>
             <h2>Top Artist's <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
