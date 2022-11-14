@@ -9,8 +9,8 @@ const Card = (props) => {
   const colors = ['#FCDDB0', '#D58BDD', '#81C6E8', '#ABD9FF', '#FD841F', '#C8B6E2', '#D3EBCD', '#377D71', '#839AA8', '#FBF46D']
 
   const getRandomColors = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
+    return colors[Math.floor(Math.random() * colors.length)]
+  }
 
   const type = {
     artist: <BsPerson size={90} />,

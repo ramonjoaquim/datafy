@@ -8,16 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (function() { 
-        let isProductionStage = false;
+        let isProductionStage = false
         try {
-          isProductionStage = !window.origin.toString().includes('localhost');
+          isProductionStage = !window.origin.toString().includes('localhost')
           if (isProductionStage) {
-            document.write('<base href="https://datafy-stats.netlify.app">');
+            document.write('<base href="https://datafy-stats.netlify.app">')
           }
         } catch (error) {
           console.error(error)
         }
-      })();
+      })()
     </script>
     <title>Datafy</title>
   </head>

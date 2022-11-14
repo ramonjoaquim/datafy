@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-import { getFont } from '../../context/app-context';
+import { getFont } from '../../context/app-context'
 import './pop-up.css'
 
 
 const PopUp = (props) => {
-  const modal = document.getElementById("myModal");
-  const [firstHide, setFirstHide] = useState(true);
+  const modal = document.getElementById("myModal")
+  const [firstHide, setFirstHide] = useState(true)
 
   window.onclick = (event) => {
     if (event.target === modal) {

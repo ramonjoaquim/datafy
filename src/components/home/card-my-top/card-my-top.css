@@ -52,6 +52,15 @@
   outline: none;
 }
 
+.icon-type-my-top-10 {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: -60px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  outline: none;
+}
+
 .btn-card-my-top {
   background: rgba(255, 255, 255, 0);
   width: -1px;

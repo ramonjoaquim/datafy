@@ -1,6 +1,10 @@
 import moment from "moment"
 import { encryptStorage } from "../utils/storage"
 
+const isExpiredCache = (date) => {
+  return moment(date).isBefore(moment())
+}
+
 function setTopArtistContext(topArtist, filter) {
   setExpirationCache()
   encryptStorage.setItem(`topArtist-${filter}`, JSON.stringify(topArtist))
@@ -28,13 +32,13 @@ function setExpirationCache() {
 }
 
 function getSearchContext(filter) {
-  let expirationTime = encryptStorage.getItem('expirationCache');
+  const expirationTime = encryptStorage.getItem('expirationCache')
   if (expirationTime != null && isExpiredCache(expirationTime)) {
     clear()
     setExpirationCache()
   }
-  let storageItem = encryptStorage.getItem(filter);
-  return storageItem ?? null;
+  const storageItem = encryptStorage.getItem(filter)
+  return storageItem ?? null
 }
 
 function clear() {
@@ -55,10 +59,6 @@ function clear() {
   encryptStorage.removeItem('topSongStats-medium_term')
   encryptStorage.removeItem('topSongStats-short_term')
   encryptStorage.removeItem('topSongStats-long_term')
-}
-
-const isExpiredCache = (date) => {
-  return moment(date).isBefore(moment());
 }
 
 export { 

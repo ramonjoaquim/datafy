@@ -4,7 +4,7 @@ import { ImWarning, ImHappy } from 'react-icons/im'
 import { SlClose } from 'react-icons/sl'
 import { BsInfoLg } from 'react-icons/bs'
 
-import './toast.css';
+import './toast.css'
 
 const Toast = props => {
 
@@ -49,7 +49,7 @@ const Toast = props => {
             </div>
         </div>
       </div>
-  );
+  )
 }
 
-export default Toast;
+export default Toast

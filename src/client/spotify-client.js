@@ -1,28 +1,28 @@
-import axios from "axios";
-import { getUserContext } from "../context/user-context";
-import { encryptStorage } from "../utils/storage";
+import axios from "axios"
+import { getUserContext } from "../context/user-context"
+import { encryptStorage } from "../utils/storage"
 import Buffer from 'buffer'
 
-const API = 'https://api.spotify.com/v1';
-const API_ACCOUNTS = 'https://accounts.spotify.com/api';
-const limit = 10;
-const offset = 0;
-const headerAccept = 'application/json';
+const API = 'https://api.spotify.com/v1'
+const API_ACCOUNTS = 'https://accounts.spotify.com/api'
+const limit = 10
+const offset = 0
+const headerAccept = 'application/json'
 
 
 axios.interceptors.response.use(
   (response) => {
-    return response;
+    return response
   },
   async function (error) {
-    const accessToken = getUserContext().accessToken;
+    const accessToken = getUserContext().accessToken
     if (error?.response?.status === 401 && accessToken) {
       encryptStorage.clear()
       window.location.reload()
     }
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 const getArtists = (time_range) => {
   return axios.get(`${API}/me/top/artists`, {

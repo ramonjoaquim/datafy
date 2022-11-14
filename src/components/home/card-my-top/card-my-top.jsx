@@ -7,7 +7,7 @@ import { drawCanvas } from '../../../canvas/canvas'
 
 //icons
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from 'react-icons/tfi'
-import { GiSoundWaves } from 'react-icons/gi'
+import { GiSoundWaves, GiPodium } from 'react-icons/gi'
 import { BsPersonLinesFill } from 'react-icons/bs'
 import { RiShareFill } from  'react-icons/ri'
 
@@ -23,7 +23,10 @@ import xmas from '../../../assets/my-tops/xmas-background.jpg'
 const CardMyTop = (props) => {
   const icon = {
     artist: <BsPersonLinesFill size={100} className='icon-type-my-top'/>,
-    song: <GiSoundWaves size={100} className='icon-type-my-top'/>
+    song: <GiSoundWaves size={100} className='icon-type-my-top'/>,
+    top10Song: <GiPodium size={100} className='icon-type-my-top'/>,
+    top10Artist: <GiPodium size={100} className='icon-type-my-top'/>,
+    top10Genre: <GiPodium size={100} className='icon-type-my-top'/>,
   }
 
   const backgrounds = [black, black02, blue, blue02, glitch, gray, xmas]
@@ -39,14 +42,14 @@ const CardMyTop = (props) => {
       let index = currentIndexBackground
       if (position === 'right') {
         if (index < 6) {
-          index++;
+          index++
           setbackgroundNext(true)
           setbackgroundPrev(true)
         } else {
           setbackgroundNext(false)
         }
       } else if (index > 0) {
-        index--;
+        index--
         setbackgroundPrev(true)
         setbackgroundNext(true)
       } else {
@@ -62,7 +65,7 @@ const CardMyTop = (props) => {
     cardBox.forEach(card => {
       card.style.animation = 'breath 30s linear infinite'
     })
-  }, 4000);
+  }, 4000)
 
  
 

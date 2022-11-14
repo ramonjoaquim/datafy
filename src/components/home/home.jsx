@@ -11,6 +11,9 @@ const Home = () => {
     const [filter, setFilter] = useState('short_term')
     const [topArtist, setTopArtist] = useState()
     const [topSong, setTopSong] = useState()
+    const [top10Song, setTop10Song] = useState()
+    const [top10Artist, setTop10Artist] = useState()
+    const [top10Genre, setTop10Genre] = useState()
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -33,7 +36,7 @@ const Home = () => {
         setLoading(false)
         setTopArtistContext(res.data.items[0], filter)
       })
-    };
+    }
 
     const getTopSongFrom = () => {
       if (!filter) return
@@ -50,7 +53,7 @@ const Home = () => {
         setLoading(false)
         setTopSongContext(res.data.items[0], filter)
       })
-    };
+    }
 
     return (
       <>
@@ -76,28 +79,28 @@ const Home = () => {
 
           <CardMyTop 
             title={'My Top 10 Songs'} 
-            type={'topSongs'} 
-            songName={topSong?.name} 
-            songArtist={topSong?.artists[0].name}
-            songImage={topSong?.album.images[0].url}
+            type={'top10Song'} 
+            // songName={topSong?.name} 
+            // songArtist={topSong?.artists[0].name}
+            // songImage={topSong?.album.images[0].url}
             loading={loading}
             filter={filter}/>
 
           <CardMyTop 
             title={'My Top 10 Artists'} 
-            type={'topArtists'} 
-            songName={topSong?.name} 
-            songArtist={topSong?.artists[0].name}
-            songImage={topSong?.album.images[0].url}
+            type={'top10Artist'} 
+            // songName={topSong?.name} 
+            // songArtist={topSong?.artists[0].name}
+            // songImage={topSong?.album.images[0].url}
             loading={loading}
             filter={filter}/>
 
           <CardMyTop 
             title={"My Top 10 Genre's"} 
-            type={'topGenres'} 
-            songName={topSong?.name} 
-            songArtist={topSong?.artists[0].name}
-            songImage={topSong?.album.images[0].url}
+            type={'top10Genre'} 
+            // songName={topSong?.name} 
+            // songArtist={topSong?.artists[0].name}
+            // songImage={topSong?.album.images[0].url}
             loading={loading}
             filter={filter}/>
         </div>
