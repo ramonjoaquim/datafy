@@ -34,7 +34,10 @@ const PopUp = (props) => {
           </header>
           </center>
           <main>
-            {props?.data?.typeContent === 'IMAGE' ? <center><img src={props.data.value} alt="preview" /></center> : props.data}
+            {props?.data?.typeContent === 'IMAGE' ? <center><img src={props.data.value} alt="preview" style={{
+              width: '155px',
+              height: 'auto'
+            }}/></center> : props.data}
           </main>
           <footer className='footer-popup'>
             <span onClick={() => hidePopup()}>
