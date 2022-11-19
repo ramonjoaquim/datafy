@@ -15,6 +15,9 @@
  - nav bar
     - https://www.geeksforgeeks.org/create-a-responsive-navbar-using-reactjs/
 
+## Create backgrounds
+- https://mdigi.tools/solid-color-image-generator/    
+
 ## Resize backgrounds 
 - width 500 x height 899
   - https://www.simpleimageresizer.com/upload

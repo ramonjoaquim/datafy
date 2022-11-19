@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-import { getFont } from '../../context/app-context';
+import { getFont } from '../../context/app-context'
 import './pop-up.css'
 
 
 const PopUp = (props) => {
-  const modal = document.getElementById("myModal");
-  const [firstHide, setFirstHide] = useState(true);
+  const modal = document.getElementById("myModal")
+  const [firstHide, setFirstHide] = useState(true)
 
   window.onclick = (event) => {
     if (event.target === modal) {
@@ -20,7 +20,7 @@ const PopUp = (props) => {
   }
 
   return (
-    <div className='popup-background' id='myModal' style={{
+    <div onclick={() => hidePopup()} className='popup-background' id='myModal' style={{
         visibility: props.show ? 'visible' : 'hidden',
       }}>
       <div className="popup-content" id="modalContent" style={{
@@ -34,7 +34,7 @@ const PopUp = (props) => {
           </header>
           </center>
           <main>
-          {props.data}
+            {props?.data?.typeContent === 'IMAGE' ? <center><img src={props.data.value} alt="preview" /></center> : props.data}
           </main>
           <footer className='footer-popup'>
             <span onClick={() => hidePopup()}>

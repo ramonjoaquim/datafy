@@ -25,6 +25,14 @@
   cursor: pointer;
 }
 
+.inverted {
+    transform: rotate(180deg) !important; /* Equal to rotateZ(45deg) */
+}
+
+.inverted:active {
+  transform: scale(1.1);
+}
+
 .icon-arrow-left:hover {
   cursor: pointer;
   transform: scale(1.1); 
@@ -44,6 +52,15 @@
 }
 
 .icon-type-my-top {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: -60px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  outline: none;
+}
+
+.icon-type-my-top-10 {
   position: relative;
   margin-top: -30px;
   margin-bottom: -60px;
@@ -133,6 +150,23 @@ button:disabled {
   font-size: 100%;
 }
 
+.fake-art {
+  background-color: #008f58;
+  width: 150px;
+  height: 150px;
+  margin-left: 110px;
+  position: absolute;
+  margin-top: -60px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 27px 8px #008f5996;
+}
+
+.fake-top-icon {
+  position: relative;
+  top: 45px;
+  color: whitesmoke;
+}
+
 @-webkit-keyframes breath {
   0%   {  background-size: 110% auto; }
   50%  {  background-size: 140% auto; }
@@ -171,15 +205,15 @@ button:disabled {
   }
 
   .imageArtistSong {
-    max-width: 150px;
-    max-height: 150px;
-    margin-left: 100px;
-    margin-top: -60px;
-    position: absolute;
+    margin-left: 95px;
   }
 
   .arrows-change-background {
     margin-top: 60%;
+  }
+
+  .fake-art {
+    margin-left: 95px;
   }
 
 }

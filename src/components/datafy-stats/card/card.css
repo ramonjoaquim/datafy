@@ -20,6 +20,7 @@
   width: 200px;
   height: 200px;
   margin-top: 0px;
+  margin-bottom: 5px;
   margin-left: 0px;
   border-radius: 5px;
   cursor: pointer;
@@ -70,7 +71,7 @@
 .container-icon-player {
   color: #2a4436;
   text-align: end;
-  margin-top: -45px;
+  margin-top: -53px;
   cursor: pointer;
 }
 

@@ -1,6 +1,6 @@
 import Navbar from '../navbar/navbar'
 import Card from './card/card'
-import './datafy-search.css'
+import './datafy-stats.css'
 import RadioSwitch from '../radio-switch/radio-switch'
 import PopUp from '../pop-up/pop-up'
 import { useState, useEffect } from 'react'
@@ -13,7 +13,7 @@ import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } fr
 import { HiPlay } from 'react-icons/hi'
 import { getFont } from '../../context/app-context'
 
-const DatafySearch = () => {
+const DatafyStats = () => {
     const genreNames = ['Pop', 'Rock', 'Eletronic', 'Indie', 'Indie Rock', 'lofi']
     const bandNames = ['Beach Bunny', 'Drake', 'Slipknot', 'Foo Fighters', 'Eminem', 'Snoop Dog', 'Daughter', '50 Cent', 'Halo', 'Ice cube']
     const songNames = ['Stress', 'Nobody knows', 'Issa Vibe', 'Have me all', 'All on me', 'Show me', 'Can you', 'Lemon', 'Body flow']
@@ -42,7 +42,7 @@ const DatafySearch = () => {
 
 
     useEffect(() => {
-      if (defaultGenre) return;
+      if (defaultGenre) return
       playSongFromAlbum(song?.album?.uri, song?.track_number)
       setTitleNotify('Now playing...')
       setMessageNotify(`${song?.name} - ${song?.artists[0]?.name}`)
@@ -64,29 +64,29 @@ const DatafySearch = () => {
               </>
             )}
         </center>
-          </>;
+          </>
         setContent(cont)
     }, [popup])
 
     const selectArtist = artist => {
-      if (defaultGenre) return;
+      if (defaultGenre) return
       setTitleArtist(artist.name)
       getTopTracksArtist(artist.id).then(res => {
         setTopTracksArtist(res.data.tracks)
         setPopup(!popup)
       })
-    };
+    }
 
     const getRandomBandName = () => {
-      return bandNames[Math.floor(Math.random()*bandNames.length)];
-    };
+      return bandNames[Math.floor(Math.random()*bandNames.length)]
+    }
 
     const getRandomSongsdName = () => {
-      return songNames[Math.floor(Math.random()*songNames.length)];
-    };
+      return songNames[Math.floor(Math.random()*songNames.length)]
+    }
 
     const getTopArtist = filter => {
-      if (!filter) return;
+      if (!filter) return
 
       setLoadingArtist(true)
       let fromContext = getSearchContext(`topArtistStats-${filter}`)
@@ -96,7 +96,7 @@ const DatafySearch = () => {
           getTopGenres(fromContext)
           setLoadingArtist(false)
           setDefaultGenre(false)
-        }, 300);
+        }, 300)
         return
       }
 
@@ -106,16 +106,16 @@ const DatafySearch = () => {
         setLoadingArtist(false)
         setTopArtistStatsContext(res.data.items, filter)
       })
-    };
+    }
 
     const getTopTracksArtist = idArtist => {
-      if (!idArtist) return;
+      if (!idArtist) return
       setLoadingTopTracksArtists(true)
-      return getArtistTopTracks(idArtist);
-    };
+      return getArtistTopTracks(idArtist)
+    }
 
     const getTopSong = filter => {
-      if (!filter) return;
+      if (!filter) return
 
       setloadingSong(true)
       let fromContext = getSearchContext(`topSongStats-${filter}`)
@@ -123,7 +123,7 @@ const DatafySearch = () => {
         setTimeout(() => {
           setTopSongs(fromContext)
           setloadingSong(false)
-        }, 300);
+        }, 300)
         return
       }
       
@@ -133,15 +133,16 @@ const DatafySearch = () => {
         setDefaultGenre(false)
         setTopSongStatsContext(res.data.items, filter)
       })
-    };
+    }
 
     const getTopGenres = artists => {
       let genresMap = artists.map(a => a.genres)
-      let allGenres = genresMap.reduce((prev, next) => prev.concat(next));
-      let allSingleGenres = allGenres.filter((value, index, array) => array.indexOf(value) === index);
+      let allGenres = []
+      genresMap.forEach(genres => allGenres.push(genres[0]));
+      let allSingleGenres = allGenres.filter((value, index, array) => array.indexOf(value) === index)
       let ten = allSingleGenres.slice(0, 10)
       setTopGenres(ten)
-    };
+    }
 
     return (
       <>
@@ -197,4 +198,4 @@ const DatafySearch = () => {
     )
 }
 
-export default DatafySearch
+export default DatafyStats

@@ -1,5 +1,5 @@
 .notification-container {
-	font-size: 14px;
+	font-size: 18px;
 	box-sizing: border-box;
 	position: fixed;
   border-radius: 10px;
@@ -8,7 +8,6 @@
 
 .top-right {
 	top: 12px;
-	right: 1px;
 	transition: transform .6s ease-in-out;
 	animation: toast-in-right .7s;
 }
@@ -47,7 +46,7 @@
 
 .notification-title {
 	font-weight: 700;
-	font-size: 16px;
+	font-size: 20px;
 	text-align: left;
 	margin-top: 0;
 	margin-bottom: 6px;
@@ -77,9 +76,9 @@
 
 .toast {
   height: 50px;
-  width: 365px;
+  width: 100%;
 	color: #fff;
-	padding: 20px 15px 10px 10px;
+	padding: 10px 20px 17px 10px;
   border-radius: 10px;
 }
 

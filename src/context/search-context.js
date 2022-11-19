@@ -1,6 +1,10 @@
 import moment from "moment"
 import { encryptStorage } from "../utils/storage"
 
+const isExpiredCache = (date) => {
+  return moment(date).isBefore(moment())
+}
+
 function setTopArtistContext(topArtist, filter) {
   setExpirationCache()
   encryptStorage.setItem(`topArtist-${filter}`, JSON.stringify(topArtist))
@@ -9,6 +13,16 @@ function setTopArtistContext(topArtist, filter) {
 function setTopSongContext(topSong, filter) {
   setExpirationCache()
   encryptStorage.setItem(`topSong-${filter}`, JSON.stringify(topSong))
+}
+
+function setTop10SongContext(topSong, filter) {
+  setExpirationCache()
+  encryptStorage.setItem(`top10Song-${filter}`, JSON.stringify(topSong))
+}
+
+function setTop10ArtistsContext(topArtists, filter) {
+  setExpirationCache()
+  encryptStorage.setItem(`top10Artists-${filter}`, JSON.stringify(topArtists))
 }
 
 function setTopSongStatsContext(topSongStats, filter) {
@@ -28,13 +42,13 @@ function setExpirationCache() {
 }
 
 function getSearchContext(filter) {
-  let expirationTime = encryptStorage.getItem('expirationCache');
+  const expirationTime = encryptStorage.getItem('expirationCache')
   if (expirationTime != null && isExpiredCache(expirationTime)) {
     clear()
     setExpirationCache()
   }
-  let storageItem = encryptStorage.getItem(filter);
-  return storageItem ?? null;
+  const storageItem = encryptStorage.getItem(filter)
+  return storageItem ?? null
 }
 
 function clear() {
@@ -57,14 +71,12 @@ function clear() {
   encryptStorage.removeItem('topSongStats-long_term')
 }
 
-const isExpiredCache = (date) => {
-  return moment(date).isBefore(moment());
-}
-
 export { 
   setTopArtistContext, 
   setTopArtistStatsContext, 
-  setTopSongContext, 
+  setTopSongContext,
+  setTop10SongContext,
+  setTop10ArtistsContext, 
   setTopSongStatsContext,
   getSearchContext
 }

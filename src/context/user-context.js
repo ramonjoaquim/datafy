@@ -7,23 +7,23 @@ const setUserContext = ({ accessToken, refreshToken, scope, tokenType, expiresIn
   encryptStorage.setItem('tokenType', tokenType)
   encryptStorage.setItem('expiresIn', expiresIn)
   encryptStorage.setItem('market', market)
-};
+}
 
 const setMarketContext = market => {
   encryptStorage.setItem('market', market)
-};
+}
 
 const setUserDisplayName = userDisplayName => {
   encryptStorage.setItem('userDisplayName', userDisplayName)
-};
+}
 
 const setUserProfileImage = userProfileImage => {
   encryptStorage.setItem('userProfileImage', userProfileImage)
-};
+}
 
 const setAccessToken = accessToken => {
   encryptStorage.setItem('accessToken', accessToken)
-};
+}
 
 const getUserContext = () => {
   return {
@@ -36,15 +36,15 @@ const getUserContext = () => {
     userDisplayName: encryptStorage.getItem('userDisplayName'),
     userProfileImage: encryptStorage.getItem('userProfileImage')
   }
-};
+}
 
 const clearUserContext = () => {
   encryptStorage.clear()
-};
+}
 
 const isUserLogged = () => {
   return !!encryptStorage.getItem('accessToken')
-};
+}
 
 
 export { 

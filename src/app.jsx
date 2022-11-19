@@ -3,14 +3,14 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
-import Login from './hooks/login/login'
-import Home from './hooks/home/home'
-import DatafySearch from './hooks/datafy-search/datafy-search'
+import Login from './components/login/login'
+import Home from './components/home/home'
+import DatafySearch from './components/datafy-stats/datafy-stats'
 
 // icons
 import { SlSocialLinkedin, SlSocialSpotify, SlSocialTwitter, SlSocialGithub} from 'react-icons/sl'
 import { BiUpArrow } from 'react-icons/bi'
-import PrivateRoute from './hooks/private-route/private-route'
+import PrivateRoute from './components/private-route/private-route'
 
 //fonts
 import './fonts/Bungee_Inline/BungeeInline-Regular.ttf'
@@ -32,19 +32,19 @@ export function App() {
     spotify: 'https://open.spotify.com/user/q5bldk137di87l9q4byprgeec',
     github: 'https://github.com/ramonjoaquim'
   }
-  const pixelsLimit = 100;
+  const pixelsLimit = 100
 
 
-  window.onscroll = () => {scrollFunction()};
+  window.onscroll = () => {scrollFunction()}
 
   function scrollFunction() {
-    const mybutton = document.getElementById("btnScrollTop");
-    mybutton.style.display = document.body.scrollTop > pixelsLimit || document.documentElement.scrollTop > pixelsLimit ? "block" : "none";
+    const mybutton = document.getElementById("btnScrollTop")
+    mybutton.style.display = document.body.scrollTop > pixelsLimit || document.documentElement.scrollTop > pixelsLimit ? "block" : "none"
   }
 
   function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
   } 
 
   return (
@@ -55,7 +55,7 @@ export function App() {
           <Route path="*" element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="home" element={<PrivateRoute Component={Home}/>} />
-          <Route path="datafy-search" element={<PrivateRoute Component={DatafySearch}/>} />
+          <Route path="datafy-stats" element={<PrivateRoute Component={DatafySearch}/>} />
         </Routes>
       </BrowserRouter>
       <center>
