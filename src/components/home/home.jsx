@@ -146,7 +146,7 @@ const Home = () => {
             filter={filter}/>
 
           <CardMyTop 
-            title={"My Top 10 Genre's"} 
+            title={"My Top 10 Genres"} 
             type={'top10Genre'} 
             top10Genre={top10Genre}
             loading={loading}

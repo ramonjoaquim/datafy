@@ -104,7 +104,7 @@ function getTop10Song(props) {
 }
 
 function getTop10Artist(props) {
-  return props.top10Artist.map(artist => artist.name)
+  return props.top10Artist.map(artist => ({name: artist.name, popularity: artist.popularity}))
 }
 
 function buildBodyMyTop(context, props) {
@@ -151,7 +151,7 @@ function buildBodyMyTop10(context, props) {
   }
   //title Card type
   context.font = `45px ${FONT}`
-  context.fillText(props.type === 'top10Song' ? "My Top 10 Song's" : props.type === 'top10Artist' ? "My Top 10 Artist's" : "My Top 10 Genre's", centerVertically, 310)
+  context.fillText(props.type === 'top10Song' ? "My Top 10 Songs" : props.type === 'top10Artist' ? "My Top 10 Artists" : "My Top 10 Genres", centerVertically, 310)
 
   context.font = `20px ${FONT}`
   let initialPosition = 360
@@ -167,7 +167,7 @@ function buildBodyMyTop10(context, props) {
   if (props.top10Artist) {
     let artists = getTop10Artist(props)
     artists.forEach(artist => {
-      context.fillText(`${artist}`, centerVertically, initialPosition)
+      context.fillText(`${artist.name}`, centerVertically, initialPosition)
       initialPosition += 30
     });
   }

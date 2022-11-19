@@ -149,7 +149,7 @@ const DatafyStats = () => {
           <Navbar />
           <RadioSwitch setFilter={setFilter} value={filter}/>
           <div className='box-home'>
-            <h2>Top Artist's <small className='label-order'>(Most to least)</small></h2>
+            <h2>Top Artists <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
             {loadingArtist ? <Loading/> : Array.apply(0, topArtists).map((artist) => 
                <Card title={artist.name ?? getRandomBandName()} 
@@ -160,7 +160,7 @@ const DatafyStats = () => {
                     onClick={() => selectArtist(artist)}/>
              )}
             </section>
-            <h2>Top Song's <small className='label-order'>(Most to least)</small></h2>
+            <h2>Top Songs <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
             {loadingSong ? <Loading/> : Array.apply(0, topSongs).map((song) => 
                <Card title={song.name ?? getRandomSongsdName()} 
