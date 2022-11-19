@@ -1,5 +1,5 @@
 import { BsPerson } from 'react-icons/bs'
-import { GiMusicSpell } from 'react-icons/gi'
+import { GiRollingEnergy } from 'react-icons/gi'
 import { SiYoutubemusic } from 'react-icons/si'
 import { MdOutlinePlayCircleFilled } from 'react-icons/md'
 import { getFont } from '../../../context/app-context'
@@ -15,7 +15,7 @@ const Card = (props) => {
   const type = {
     artist: <BsPerson size={90} />,
     song: <SiYoutubemusic size={90} />,
-    genre: <GiMusicSpell size={90} color={getRandomColors()} />
+    genre: <GiRollingEnergy size={90} color={getRandomColors()} />
   }
 
   const playMusic = () => {

@@ -137,7 +137,8 @@ const DatafyStats = () => {
 
     const getTopGenres = artists => {
       let genresMap = artists.map(a => a.genres)
-      let allGenres = genresMap.reduce((prev, next) => prev.concat(next))
+      let allGenres = []
+      genresMap.forEach(genres => allGenres.push(genres[0]));
       let allSingleGenres = allGenres.filter((value, index, array) => array.indexOf(value) === index)
       let ten = allSingleGenres.slice(0, 10)
       setTopGenres(ten)

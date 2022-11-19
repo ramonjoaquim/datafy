@@ -15,6 +15,16 @@ function setTopSongContext(topSong, filter) {
   encryptStorage.setItem(`topSong-${filter}`, JSON.stringify(topSong))
 }
 
+function setTop10SongContext(topSong, filter) {
+  setExpirationCache()
+  encryptStorage.setItem(`top10Song-${filter}`, JSON.stringify(topSong))
+}
+
+function setTop10ArtistsContext(topArtists, filter) {
+  setExpirationCache()
+  encryptStorage.setItem(`top10Artists-${filter}`, JSON.stringify(topArtists))
+}
+
 function setTopSongStatsContext(topSongStats, filter) {
   setExpirationCache()
   encryptStorage.setItem(`topSongStats-${filter}`, JSON.stringify(topSongStats))
@@ -64,7 +74,9 @@ function clear() {
 export { 
   setTopArtistContext, 
   setTopArtistStatsContext, 
-  setTopSongContext, 
+  setTopSongContext,
+  setTop10SongContext,
+  setTop10ArtistsContext, 
   setTopSongStatsContext,
   getSearchContext
 }

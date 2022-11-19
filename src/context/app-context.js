@@ -3,8 +3,11 @@ const fonts = ['bunnge', 'lecker', 'megrim', 'nabla', 'rennie', 'rubik', 'syncop
 const date = new Date()
 
 const getFont = () => {
+  return fonts[7];
   const month =  date.getMonth()
   switch (month) {
+    case 0:
+      return fonts[7]
     case 1:
     case 2:
       return fonts[0]
@@ -22,9 +25,9 @@ const getFont = () => {
       return fonts[4]
     case 11:
     case 12:
-      return fonts[5];
+      return fonts[5]
     default:
-      return fonts[6];
+      return fonts[6]
   }
 };
 
