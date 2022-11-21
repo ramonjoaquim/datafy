@@ -6,11 +6,12 @@
 }
 
 .logo-nav-bar:hover {
-  color: #E4E6C3
+  color: #595959
 }
 
 .nav {
-  background: #82c294;
+  background: #FFF6D4;
+  color: #100C09;
   width: 99.1%;
   height: 100px;
   display: flex;
@@ -26,7 +27,7 @@
 }
 
 .nav-link {
-  color: white;
+  color: #595959;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -35,16 +36,16 @@
 }
 
 .nav-link:hover {
-  color: green;
+  color: #100C09;
 }
 
 .active {
-  color: green;
+  color: #100C09;
 }
 
 .bars {
   display: none;
-  color: white;
+  color: #595959;
 }
 
 .nav-menu {
@@ -61,9 +62,9 @@
 
 .nav-btn-link {
   border-radius: 5px;
-  background: #47855b;
+  background: #100C09;
   padding: 10px 22px;
-  color: whitesmoke;
+  color: #FFFCE6;
   outline: none;
   border: none;
   cursor: pointer;
@@ -75,8 +76,8 @@
 
 .nav-btn-link:hover {
   transition: all 0.2s ease-in-out;
-  background: #feffff;
-  color: black;
+  background: #595959;
+  color: #FFFCE6;
 }
 
 .nav-menu-mobile {
@@ -109,7 +110,7 @@
   }
 
   .bars:active {
-    color: #47855b;
+    color: #3D3D3D;
   }
 
   .nav-menu {
@@ -123,14 +124,14 @@
     display: none;
     margin-top: 70px;
     margin-bottom: 10px;
-    color: whitesmoke;
+    color: #3D3D3D;
   }
 
   .btn-singout {
     border-radius: 9px;
-    background: #47855b;
+    background: #100C09;
     padding: 10px 22px;
-    color: whitesmoke;
+    color: #595959;
     outline: none;
     border: none;
     cursor: pointer;
@@ -140,7 +141,7 @@
   
   .btn-singout:hover {
     color: black;
-    background-color: whitesmoke;
+    background-color: #3D3D3D;
   }
 
   .btn-sing-out-mobile {
@@ -149,13 +150,12 @@
   }
 
   .menu-item {
-    color: whitesmoke;
+    color: #3D3D3D;
     font-weight: bold;
   }
 
   .menu-item:hover {
-    color: #47855b;
-    color: whitesmoke;
+    color: #100C09;
     outline: none;
     border: none;
     cursor: pointer;
@@ -163,22 +163,17 @@
   }
 
   .active {
-    color: #47855b;
+    color: #595959;
   }
 
   .menu-item-label {
     color: whitesmoke;
   }
   .menu-item-label:hover {
-    /* color: red;
-    border-radius: 9px;
-    background: #47855b; */
-    /* padding: 10px 22px; */
     color: whitesmoke;
     outline: none;
     border: none;
     cursor: pointer;
-    /* transition: all 0.2s ease-in-out; */
     text-decoration: none;
   }
 }

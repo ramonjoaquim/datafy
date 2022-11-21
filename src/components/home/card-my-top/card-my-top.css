@@ -1,5 +1,5 @@
 .card-box-my-top {
-  background: #82c294;
+  background: #100C09;
   width: 400px;
   height: 600;
   max-height: 675px;
@@ -19,7 +19,7 @@
   height: 40px;
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(90deg, rgb(0 143 89 / 69%) 46%, rgba(52,52,52,1) 110%, rgba(255,237,237,0) 44%, rgba(0,0,0,0) 49%, rgb(0 143 89 / 93%) 56%, rgb(0 143 89 / 43%) 113%, rgb(0 143 89) 41%);
+  background: linear-gradient(90deg, rgb(61 61 61 / 74%) 46%, rgba(52,52,52,1) 110%, rgba(255,237,237,0) 44%, rgba(0,0,0,0) 49%, rgb(0 143 89 / 93%) 56%, rgb(0 143 89 / 43%) 113%, rgb(0 143 89) 41%);
   border-radius: 30px;
   color: whitesmoke;
   cursor: pointer;
@@ -140,7 +140,7 @@ button:disabled {
   max-height: 150px;
   margin-top: -60px;
   border-radius: 10px;
-  box-shadow: 0px 0px 27px 8px #008f5996;
+  box-shadow: 0px 0px 27px 8px #100C09;
 }
 
 .artist-text {
@@ -149,12 +149,12 @@ button:disabled {
 }
 
 .fake-art {
-  background-color: #008f58;
+  background-color: #100C09;
   width: 150px;
   height: 150px;
   margin-top: -60px;
   border-radius: 10px;
-  box-shadow: 0px 0px 27px 8px #008f5996;
+  box-shadow: 0px 0px 27px 8px #100C09;
 }
 
 .fake-top-icon {

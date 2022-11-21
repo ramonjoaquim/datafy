@@ -16,7 +16,8 @@
   transform: scale(0.98);
 }
 .card-box-home {
-  background: #82c294;
+  background: #FFFCE6;
+  color: #100C09;
   width: 200px;
   height: 200px;
   margin-top: 0px;
@@ -28,11 +29,11 @@
 
 .card-box-home:hover {
   box-shadow: 5px 5px 10px 1px #455c4b;
-  background-color: #455c4b;
+  background-color: #FFF6D4;
 }
 
 .card-title-home {
-  color: whitesmoke;
+  color: #100C09;
   font-size: larger;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -69,7 +70,7 @@
 }
 
 .container-icon-player {
-  color: #2a4436;
+  color: #100C09;
   text-align: end;
   margin-top: -53px;
   cursor: pointer;

@@ -19,8 +19,8 @@
   margin-bottom: 20px;
   z-index: 101;
   border-radius: 9px;
-  background: #82c294;
-  color: whitesmoke;
+  background: #FFFCE6;
+  color: #3D3D3D;
   outline: none;
   border: none;
   cursor: pointer;
@@ -38,7 +38,7 @@
 }
 
 .icon-arrow-down:hover {
-  color: #47855b;
+  color: #595959;
 }
 
 @keyframes slideUp {

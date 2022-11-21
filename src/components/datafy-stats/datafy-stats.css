@@ -17,13 +17,13 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #455c4b;
+  background: #3D3D3D;
   width: 5px;
   border-radius: 10px;
 } 
 
 .label-order {
-  color: #82c2949e;
+  color: #FFFCE6;
 }
 
 .track-row {
@@ -34,7 +34,7 @@
 }
 
 .track-row:hover {
-  color: aquamarine;
+  color: #595959;
 }
 
 .top-tracks-text {

@@ -8,7 +8,7 @@
 
 - parcel for compile
 
-- [collors pallete](https://paletadecolores.online/pt/colors/b0f2c2/)
+- [collors pallete](https://www.schemecolor.com/pastel-yellow-and-black.php)
 
 
 ## Ideia
@@ -41,7 +41,7 @@
 
 ## Comming Features
 
-- (Datafy stats) Play song on Spotify on click on top song card [DONE]
-- (Home) Share top Song's
-- (Home) Share top Genre's
-- (Home) Share top Artist's
+- (Home) Share top Song's [DONE]
+- (Home) Share top Genre's [DONE]
+- (Home) Share top Artist's [DONE]
+- (Datafy stats) Play song on Spotify on click on top song card 

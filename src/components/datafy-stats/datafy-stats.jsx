@@ -174,7 +174,7 @@ const DatafyStats = () => {
                     blocked={!song.id}/>
              )}
             </section>
-            <h2>Top genres's</h2>
+            <h2>Top genres</h2>
             <section className='box-section' style={{cursor: 'none'}}>
             {loadingSong ? <Loading/> : Array.apply(0, topGenres).map((genre) => 
                <Card title={genre} type='genre' blocked={defaultGenre}/>
