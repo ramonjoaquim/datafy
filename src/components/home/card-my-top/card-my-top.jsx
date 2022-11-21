@@ -147,6 +147,7 @@ const CardMyTop = (props) => {
               onClick={() => changeBackground('left')}>
               <GiPlayButton size={40} className='icon-arrow-left inverted' />
             </button>
+            <center>
             {(props.songImage || props.artistImage)
               ? <img className='imageArtistSong' src={props.songImage ?? props.artistImage} />
               : <div className='fake-art'>
@@ -154,6 +155,7 @@ const CardMyTop = (props) => {
                   {icon[props.type]}
                 </span>
               </div>}
+            </center>
             <button
               disabled={!backgroundNext}
               type='button'

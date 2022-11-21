@@ -1,7 +1,4 @@
-import { FaBars, FaArrowUp } from 'react-icons/fa'
-import { IoMdExit } from 'react-icons/io'
-import { GoHome } from 'react-icons/go'
-import { GiMusicSpell } from 'react-icons/gi'
+import { ImMenu3, ImMenu4 } from 'react-icons/im'
 import { NavLink as Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { clearUserContext } from '../../context/user-context'
@@ -11,25 +8,6 @@ const Navbar = () => {
     const navigate = useNavigate()
     const [isExpanded, setExpanded] = useState(false)
 
-    setInterval(() => {
-      checkWindow()
-    }, 500)
-
-
-    const checkWindow = () => {
-      try {
-        let width = screen.availWidth
-        let outerWidth = window.outerWidth
-      
-        let height = screen.availHeight
-        let outerHeight = window.outerHeight
-        
-        if (width === outerWidth && height === outerHeight) {
-          unexpandNavBar()
-        }
-      } catch (_ignored) {}
-    }
-
     const handleResize = () => {
       if (window.innerWidth < 758) {
         unexpandNavBar()
@@ -38,9 +16,11 @@ const Navbar = () => {
 
     const handleMenu = () => {
       if (isExpanded) {
+        console.log("recolher")
         unexpandNavBar()
         setExpanded(false)
       } else {
+        console.log('expand')
         expandNavBar()
         setExpanded(true)
       }
@@ -54,7 +34,9 @@ const Navbar = () => {
       logoNav.style.position = 'fixed'
       let navMenuMobile = document.getElementById('nav-menu-mobile')
       setTimeout(() => {
-        navMenuMobile.style.display = 'grid'
+        navMenuMobile.style.display = 'flex'
+        nav.style.display = 'grid'
+        nav.style.justifyContent = 'center'
       }, 500)
     }
 
@@ -66,6 +48,8 @@ const Navbar = () => {
       let navMenuMobile = document.getElementById('nav-menu-mobile')
       navMenuMobile.style.display = 'none'
       navMenuMobile.style.transition = 'width 350ms ease-out, height 350ms ease-out'
+      nav.style.justifyContent = 'flex-start'
+      setExpanded(false)
     }
 
     const toHome = () => {
@@ -90,26 +74,30 @@ const Navbar = () => {
               <h4>Stats</h4>
             </Link>
           </div>
-          <div className='nav-btn'>
-            <Link className='nav-btn-link' onClick={logout}>Sign out</Link>
+          <div className='nav2'>
+            <div className='nav-btn'>
+              <Link className='nav-btn-link' onClick={logout}>Sign out</Link>
+            </div>
           </div>
 
           {/* mobile */}
           {isExpanded 
-              ? <FaArrowUp className='bars' onClick={handleMenu} />
-              : <FaBars className='bars' onClick={handleMenu}/>
+              ? <ImMenu4 className='bars' onClick={handleMenu} />
+              : <ImMenu3 className='bars' onClick={handleMenu}/>
           }
 
           <div className='nav-menu-mobile' id="nav-menu-mobile">
-            <Link className='menu-item' activeClassName="active" to='/home'>
-              <GoHome/> Home
-            </Link>
-            <Link className='menu-item' activeClassName="active" to='/datafy-stats'>
-             <GiMusicSpell/> Stats
-            </Link>
-            <Link className='menu-item-label btn-sing-out-mobile' onClick={logout}>
-             <IoMdExit/> Sign out
-            </Link>
+            <div className='menu-mobile'>
+              <Link className='menu-item' activeClassName="active" to='/home'>
+                Home
+              </Link>
+              <Link className='menu-item' activeClassName="active" to='/datafy-stats'>
+                Stats
+              </Link>
+              <Link className='menu-item-label btn-sing-out-mobile' onClick={logout}>
+                Sign out
+              </Link>
+            </div>
           </div>
           {/* mobile */}
         </div>

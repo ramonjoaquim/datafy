@@ -16,13 +16,30 @@ axios.interceptors.response.use(
   },
   async function (error) {
     const accessToken = getUserContext().accessToken
-    if (error?.response?.status === 401 && accessToken) {
+    const status = error?.response?.status
+    if (status === 401 && accessToken) {
       encryptStorage.clear()
       window.location.reload()
+    } else if (status > 300 && status < 500) {
+      alert(error.response.data.error_description)
+      if (status === 400) {
+        _clearQuerySearch()
+      }
+    } else {
+      encryptStorage.clear()
+      _clearQuerySearch()
+      alert(error.response.data.error_description)
     }
+
     return Promise.reject(error)
   }
 )
+
+function _clearQuerySearch() {
+  const currURL = window.location.href
+  const url = (currURL.split(window.location.host)[1]).split("?")[0]
+  window.history.pushState({}, document.title, url)
+}
 
 const getArtists = (time_range) => {
   return axios.get(`${API}/me/top/artists`, {

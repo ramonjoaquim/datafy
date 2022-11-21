@@ -138,8 +138,6 @@ button:disabled {
 .imageArtistSong {
   max-width: 150px;
   max-height: 150px;
-  margin-left: 110px;
-  position: absolute;
   margin-top: -60px;
   border-radius: 10px;
   box-shadow: 0px 0px 27px 8px #008f5996;
@@ -154,8 +152,6 @@ button:disabled {
   background-color: #008f58;
   width: 150px;
   height: 150px;
-  margin-left: 110px;
-  position: absolute;
   margin-top: -60px;
   border-radius: 10px;
   box-shadow: 0px 0px 27px 8px #008f5996;
@@ -204,16 +200,8 @@ button:disabled {
     margin-bottom: -120px;
   }
 
-  .imageArtistSong {
-    margin-left: 95px;
-  }
-
   .arrows-change-background {
     margin-top: 60%;
-  }
-
-  .fake-art {
-    margin-left: 95px;
   }
 
 }

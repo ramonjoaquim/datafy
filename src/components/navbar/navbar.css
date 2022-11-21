@@ -11,14 +11,18 @@
 
 .nav {
   background: #82c294;
+  width: 99.1%;
   height: 100px;
   display: flex;
   border-radius: 5px;
-  justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  justify-content: flex-start;
   z-index: 12;
-  /* Third Nav */
-  /* justify-content: flex-start; */
+  position: fixed;
+}
+
+.nav2 {
+  display: flex;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -47,20 +51,12 @@
   display: flex;
   align-items: center;
   margin-right: -24px;
-  /* Second Nav */
-  /* margin-right: 24px; */
-  /* Third Nav */
-  /* width: 100vw;
-  white-space: nowrap; */
 }
 
 .nav-btn {
   display: flex;
   align-items: center;
   margin-right: 24px;
-  /* Third Nav */
-  /* justify-content: flex-end;
-  width: 100vw; */
 }
 
 .nav-btn-link {
@@ -88,6 +84,16 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  .menu-mobile {
+    display: grid;
+    text-align: center;
+  }
+
+  .nav {
+    width: 96%;
+  }
+
   .logo-nav-bar {
     margin: 30px;
     font-size: 70px;
@@ -95,10 +101,9 @@
   .bars {
     display: block;
     position: absolute;
-    top: 15px;
     right: 0;
     transform: translate(-100%, 75%);
-    font-size: 1.8rem;
+    font-size: 35px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
@@ -117,7 +122,6 @@
   .nav-menu-mobile {
     display: none;
     margin-top: 70px;
-    margin-left: 45px;
     margin-bottom: 10px;
     color: whitesmoke;
   }
@@ -139,27 +143,23 @@
     background-color: whitesmoke;
   }
 
-  .btn-sing-out-mobile:hover {
-    /* background: rgb(206, 84, 84)!important; */
+  .btn-sing-out-mobile {
+    color: rgb(124, 81, 81)!important;
+    font-weight: lighter;
   }
 
   .menu-item {
     color: whitesmoke;
+    font-weight: bold;
   }
 
   .menu-item:hover {
     color: #47855b;
-    /* border-radius: 9px; */
-    /* background: #47855b; */
-    /* padding: 10px 22px; */
     color: whitesmoke;
     outline: none;
     border: none;
     cursor: pointer;
-    /* transition: all 0.2s ease-in-out; */
     text-decoration: none;
-    /* margin-top: 5px;
-    margin-bottom: 5px; */
   }
 
   .active {
