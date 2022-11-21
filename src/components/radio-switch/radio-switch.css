@@ -20,7 +20,7 @@
 
   .form {
     max-width: 20em;
-    padding-top: 25% !important;
+    padding-top: 33% !important;
   }
 }
 
@@ -63,7 +63,7 @@ input[type="radio"]:focus + span {
 
 /* ================ TOOLTIPS ================= */
 
-#radios label:hover::before {
+/* #radios label:hover::before {
   content: attr(for);
   font-family: Roboto, -apple-system, sans-serif;
   text-transform: capitalize;
@@ -78,7 +78,7 @@ input[type="radio"]:focus + span {
   padding: 4px;
   border-radius: 3px;
   display: block;
-}
+} */
 
 /* =============================================
 * CENTERING, CONTAINER STYLING ETC || IGNORE
