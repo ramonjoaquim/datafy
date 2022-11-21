@@ -123,6 +123,6 @@ input + span {
 @media screen and (max-width: 768px) {
 
   .form {
-    padding-top: 25% !important;
+    padding-top: 30% !important;
   }
 }
