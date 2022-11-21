@@ -31,6 +31,19 @@ import solidGreen02 from '../../../assets/solid-background/green02.png'
 import solidLightPurple from '../../../assets/solid-background/light-purple.png'
 import solidPurple from '../../../assets/solid-background/purple.png'
 
+//background-animes
+import maitoGuy from '../../../assets/anime-background/maito-guy.png'
+import meca from '../../../assets/anime-background/meca.jpeg'
+
+//background-asthetic
+import yellowAsthetic from '../../../assets/asthetic/yellow.png'
+import sky from '../../../assets/asthetic/sky.png'
+import sky02 from '../../../assets/asthetic/sky02.png'
+import spotifyList from '../../../assets/asthetic/spotify-list.jpeg'
+import orangeAsthetic from '../../../assets/asthetic/orange.jpeg'
+import disc from '../../../assets/asthetic/disc.jpeg'
+import ocean from '../../../assets/asthetic/ocean.png'
+
 const CardMyTop = (props) => {
   const icon = {
     artist: <BsPersonLinesFill size={100} className='icon-type-my-top'/>,
@@ -41,6 +54,21 @@ const CardMyTop = (props) => {
   }
 
   const backgrounds = [
+
+    //asthetic
+    spotifyList,
+    orangeAsthetic,
+    yellowAsthetic,
+    sky,
+    sky02,
+    ocean,
+    disc,
+
+    //anime
+    maitoGuy,
+    meca,
+
+    //stock
     black, 
     black02, 
     blue, 
@@ -48,6 +76,8 @@ const CardMyTop = (props) => {
     glitch, 
     gray, 
     xmas,
+
+    //solid
     solidBlue,
     solidBlue02,
     solidCian,
@@ -55,6 +85,7 @@ const CardMyTop = (props) => {
     solidGreen02,
     solidLightPurple,
     solidPurple,
+   
   ]
 
   const [background, setBackground] = useState(backgrounds[0])
