@@ -6,6 +6,7 @@ import PopUp from '../pop-up/pop-up'
 import { useState, useEffect } from 'react'
 import Loading from '../loading/loading'
 import Toast from '../toast/toast'
+import { ShimmerThumbnail } from "react-shimmer-effects"
 import { getArtists, getArtistTopTracks, getTopSongs, playSongFromAlbum } from '../../client/spotify-client'
 import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } from '../../context/search-context'
 
@@ -34,6 +35,8 @@ const DatafyStats = () => {
     const [titleNotify, setTitleNotify] = useState()
     const [messageNotify, setMessageNotify] = useState()
     const [song, setSong] = useState()
+
+    const timeFakeLoading = 2500
 
     useEffect(() => {
       getTopArtist(filter)
@@ -96,7 +99,7 @@ const DatafyStats = () => {
           getTopGenres(fromContext)
           setLoadingArtist(false)
           setDefaultGenre(false)
-        }, 300)
+        }, timeFakeLoading)
         return
       }
 
@@ -123,7 +126,7 @@ const DatafyStats = () => {
         setTimeout(() => {
           setTopSongs(fromContext)
           setloadingSong(false)
-        }, 300)
+        }, timeFakeLoading)
         return
       }
       
@@ -144,6 +147,10 @@ const DatafyStats = () => {
       setTopGenres(ten)
     }
 
+    const shimmerBlock = () => {
+      return (Array.apply(0, [1,2,3,4,5,6,7,8]).map(()=> <ShimmerThumbnail height={200} width={200} rounded /> ))
+    }
+
     return (
       <>
           <Navbar />
@@ -151,7 +158,7 @@ const DatafyStats = () => {
           <div className='box-home'>
             <h2>Top Artists <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
-            {loadingArtist ? <Loading/> : Array.apply(0, topArtists).map((artist) => 
+            {loadingArtist ? shimmerBlock() : Array.apply(0, topArtists).map((artist) => 
                <Card title={artist.name ?? getRandomBandName()} 
                     clickeable={true}
                     type='artist' 
@@ -162,7 +169,7 @@ const DatafyStats = () => {
             </section>
             <h2>Top Songs <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
-            {loadingSong ? <Loading/> : Array.apply(0, topSongs).map((song) => 
+            {loadingSong ? shimmerBlock() : Array.apply(0, topSongs).map((song) => 
                <Card title={song.name ?? getRandomSongsdName()} 
                     clickeable={false}
                     nameBand={song.artists ? song.artists[0].name : null}
@@ -176,7 +183,7 @@ const DatafyStats = () => {
             </section>
             <h2>Top genres</h2>
             <section className='box-section' style={{cursor: 'none'}}>
-            {loadingSong ? <Loading/> : Array.apply(0, topGenres).map((genre) => 
+            {loadingSong ? shimmerBlock() : Array.apply(0, topGenres).map((genre) => 
                <Card title={genre} type='genre' blocked={defaultGenre}/>
              )}
             </section>

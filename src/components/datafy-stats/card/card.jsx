@@ -26,7 +26,6 @@ const Card = (props) => {
   return (
     <section>
       <div className={`${props.clickeable ? 'card-container-home' : 'card-container-home-disabled-click'}  ${props.blocked ? 'blocked-box' : ''}`} onClick={props.onClick} style={{
-        animation: 'slideUp 1s',
         animationTimingFunction: 'ease-out',
       }}>
         <div className='card-box-home'>
