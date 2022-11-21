@@ -21,14 +21,14 @@ axios.interceptors.response.use(
       encryptStorage.clear()
       window.location.reload()
     } else if (status > 300 && status < 500) {
-      alert(error.response.data.error_description)
+      alert(error?.response?.data?.error_description ||
+        error?.response?.data?.error?.message)
       if (status === 400) {
         _clearQuerySearch()
       }
     } else {
       encryptStorage.clear()
       _clearQuerySearch()
-      alert(error.response.data.error_description)
     }
 
     return Promise.reject(error)

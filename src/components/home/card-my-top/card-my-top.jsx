@@ -1,6 +1,7 @@
 import './card-my-top.css'
 import { useState } from 'react'
 import Loading from '../../loading/loading'
+import { ShimmerThumbnail } from 'react-shimmer-effects'
 import Toast from '../../toast/toast'
 import PopUp from '../../pop-up/pop-up'
 import { getFont } from '../../../context/app-context'
@@ -109,7 +110,7 @@ const CardMyTop = (props) => {
       return
     }
 
-    setContent(<center><Loading color={'whitesmoke'}/></center>)
+    setContent(<center><ShimmerThumbnail width={180} height={300} /></center>)
     drawCanvas(props, background, setLoadingShare, true).then(data => {
       setContent({
         typeContent: 'IMAGE',
