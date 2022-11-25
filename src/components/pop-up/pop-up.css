@@ -12,11 +12,11 @@
 }
 
 .popup-content {
-  height: 60%;
+  height: 100%;
+  max-height: 100%;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 39vh;
-  margin-bottom: 20px;
+  margin-top: 10px;
   z-index: 101;
   border-radius: 9px;
   background: #FFFCE6;
@@ -30,15 +30,12 @@
 
 .title-popup {
   padding-top: 10px;
-  font-size: 40px;
-}
-
-.footer-popup {
-  padding-left: 48.9%;
+  font-size: 70px;
 }
 
 .icon-arrow-down:hover {
   color: #595959;
+  transform: scale(1.5);
 }
 
 @keyframes slideUp {
@@ -86,22 +83,8 @@
 
 
 @media screen and (max-width: 768px) {
-  
-  .footer-popup {
-    padding-left: 45%;
-  }
 
-  .popup-content {
-    height: 65%;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 34vh;
-    margin-bottom: 26px;
-    border-radius: 9px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    overflow: auto;
-    animation-timing-function: ease-in;
+  .title-popup {
+    font-size: 50px;
   }
 }

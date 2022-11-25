@@ -1,7 +1,8 @@
 import { ImMenu3, ImMenu4 } from 'react-icons/im'
 import { NavLink as Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { clearUserContext } from '../../context/user-context'
+import { clearUserContext, getUserContext } from '../../context/user-context'
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md'
 import './navbar.css'
 
 const Navbar = () => {
@@ -61,6 +62,17 @@ const Navbar = () => {
       window.location.reload()
     }
 
+    const openProfileContent = () => {
+      console.log('click')
+      let profileImg = document.getElementById('profileContent')
+      let dsp = profileImg.style.display
+      profileImg.style.display = dsp == 'block' ? 'none' : 'block'
+    }
+
+    const openProfile = () => {
+      window.open('https://www.spotify.com/us/account/overview/', '_blank').focus();
+    }
+
     window.addEventListener('resize', handleResize)
 
     return (
@@ -76,14 +88,28 @@ const Navbar = () => {
           </div>
           <div className='nav2'>
             <div className='nav-btn'>
-              <Link className='nav-btn-link' onClick={logout}>Sign out</Link>
+            <img src={getUserContext().userProfileImage} alt="profile image" className='profile-img' onClick={() => openProfileContent()} />
+            <span className='font-dazzle profile-name' onClick={() => openProfileContent()}>{getUserContext().userDisplayName}</span>
+            <MdArrowDropDown size={25} onClick={() => openProfileContent()}></MdArrowDropDown>
+            <div className='profile-content' id="profileContent">
+             <ul>
+             <MdArrowDropUp className='icon-arrow-up' size={40} onClick={() => openProfileContent()}></MdArrowDropUp>
+              <li>
+                <Link className='' onClick={() => openProfile()}>Profile</Link>
+              </li>
+              <hr />
+              <li>
+                <Link className='' onClick={logout}>Sign out</Link>
+              </li>
+             </ul>
+            </div>
             </div>
           </div>
 
           {/* mobile */}
           {isExpanded 
-              ? <ImMenu4 className='bars' onClick={handleMenu} />
-              : <ImMenu3 className='bars' onClick={handleMenu}/>
+              ? <ImMenu4 className='bars' size={50} onClick={handleMenu} />
+              : <ImMenu3 className='bars' size={50} onClick={handleMenu}/>
           }
 
           <div className='nav-menu-mobile' id="nav-menu-mobile">

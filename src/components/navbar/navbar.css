@@ -1,6 +1,8 @@
 
 .logo-nav-bar {
-  margin: 30px;
+  margin-top: 35px;
+  margin-left: 10px;
+  margin-right: -15vh;
   font-size: 70px;
   cursor: pointer;
 }
@@ -16,14 +18,14 @@
   height: 100px;
   display: flex;
   border-radius: 5px;
-  justify-content: flex-start;
+  justify-content: space-between;
   z-index: 12;
   position: fixed;
 }
 
 .nav2 {
   display: flex;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .nav-link {
@@ -62,27 +64,86 @@
 
 .nav-btn-link {
   border-radius: 5px;
-  background: #100C09;
-  padding: 10px 22px;
   color: #FFFCE6;
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   text-decoration: none;
-  /* Second Nav */
-  margin-left: 24px;
+  padding-top: 50px;
+  padding-left: 15px;
+  position: fixed;
+  font-size: 20px;
+}
+
+.nav-btn-link2 {
+  border-radius: 5px;
+  color: #FFFCE6;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 15px;
+  position: fixed;
+  font-size: 20px;
 }
 
 .nav-btn-link:hover {
-  transition: all 0.2s ease-in-out;
-  background: #595959;
   color: #FFFCE6;
 }
 
 .nav-menu-mobile {
   display: none;
 }
+
+.profile-img {
+  border-radius: 100%;
+  max-width: 100px;
+  max-height: 60px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.profile-content {
+  display: none;
+  margin-top: 18vh;
+  margin-left: 2vh;
+  border-radius: 5px;
+  width: 150px;
+  height: 90px;
+  background-color: #595959;
+  position: fixed;
+  color: whitesmoke;
+}
+
+.icon-arrow-up {
+  margin-top: -38px;
+  position: fixed;
+  padding-right: -44px;
+  color: #595959;
+  right: 7%;
+}
+
+.profile-name {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+li a {
+  color: whitesmoke !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  margin-left: 10px;
+  max-width: 85%;
+}
+
+hr {
+  border-top: 1px solid #ccc;
+} 
 
 @media screen and (max-width: 768px) {
 
@@ -96,14 +157,14 @@
   }
 
   .logo-nav-bar {
-    margin: 30px;
-    font-size: 70px;
+    margin-top: 30px;
   }
+
   .bars {
     display: block;
     position: absolute;
     right: 0;
-    transform: translate(-100%, 75%);
+    transform: translate(-15%, 35%);
     font-size: 35px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;

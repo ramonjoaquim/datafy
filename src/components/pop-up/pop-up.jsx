@@ -20,7 +20,7 @@ const PopUp = (props) => {
   }
 
   return (
-    <div onclick={() => hidePopup()} className='popup-background' id='myModal' style={{
+    <div className='popup-background' id='myModal' style={{
         visibility: props.show ? 'visible' : 'hidden',
       }}>
       <div className="popup-content" id="modalContent" style={{
@@ -35,15 +35,17 @@ const PopUp = (props) => {
           </center>
           <main>
             {props?.data?.typeContent === 'IMAGE' ? <center><img src={props.data.value} alt="preview" style={{
-              width: '155px',
+              maxWidth: '40vh',
               height: 'auto'
             }}/></center> : props.data}
           </main>
-          <footer className='footer-popup'>
-            <span onClick={() => hidePopup()}>
-              <MdOutlineKeyboardArrowDown size={40} className='icon-arrow-down'/>
-            </span>
-          </footer>
+          <center>
+            <footer className='footer-popup'>
+              <span onClick={() => hidePopup()}>
+                <MdOutlineKeyboardArrowDown size={50} className='icon-arrow-down'/>
+              </span>
+            </footer>
+          </center>
         </div>
       </div>
     </div>

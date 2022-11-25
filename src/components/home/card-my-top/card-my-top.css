@@ -119,7 +119,6 @@ button:disabled {
 
 .text-container-top-artist {
   margin-bottom: 0;
-  /* background-color: #008f59c4; */
   border-radius: 5px;
   margin-left: 10%;
   margin-right: 10%;
@@ -127,8 +126,7 @@ button:disabled {
 }
 
 .text-container-top-song {
-  margin-bottom: -50px;
-  /* background-color: #008f59c4; */
+  margin-bottom: -75px;
   border-radius: 5px;
   margin-left: 10%;
   margin-right: 10%;

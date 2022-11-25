@@ -141,7 +141,7 @@ const CardMyTop = (props) => {
       return
     }
 
-    setContent(<center><ShimmerThumbnail width={180} height={300} /></center>)
+    setContent(<center><ShimmerThumbnail width={328} height={689} /></center>)
     drawCanvas(props, background, setLoadingShare, true).then(data => {
       setContent({
         typeContent: 'IMAGE',

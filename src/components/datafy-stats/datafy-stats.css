@@ -26,6 +26,10 @@
   color: #FFFCE6;
 }
 
+.track-list {
+  /* height: 100%; */
+}
+
 .track-row {
   width: 40vh;
   display: grid;

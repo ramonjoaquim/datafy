@@ -54,8 +54,9 @@ const DatafyStats = () => {
 
     useEffect(() => {
       let cont = <>
-        <center><h3>Top tracks</h3></center>
+        <center><h3 style={{fontSize: '30px'}}>Top tracks</h3></center>
         <center>
+          <div className='track-list'>
             {Array.apply(0, topTracksArtist).map((track) => 
               <>
               <div className='track-row'>
@@ -66,6 +67,7 @@ const DatafyStats = () => {
               </div>
               </>
             )}
+            </div>
         </center>
           </>
         setContent(cont)
