@@ -89,8 +89,17 @@ const DownloadPage = () => {
 
         <div className={'container-dp'}>
               <div class="webflow-style-input">
-                <input class="" type="text" placeholder="Search" onChange={onchangeHandler}></input>
+                <input class="" id={'inputSearch'}
+                    type="text"
+                    placeholder="Search"
+                    onChange={onchangeHandler}
+                    onKeyDown={(e) => {
+                        if (e.code === "Enter") {
+                            search()
+                        }
+                    }}></input>
                 <button type="button"
+                    id={'btnSearch'}
                     className={'btn-search'}
                     onClick={() => search()}>
                     <CiSearch size={30} className={'icon-search'}/>
