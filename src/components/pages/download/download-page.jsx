@@ -100,10 +100,10 @@ const DownloadPage = () => {
                  {loading ? <Loading/> : resultData}
                 {resultData == null ? <></> : <div className={'pagination'}>
                     <span onClick={() => search('previous')}>
-                        <BiLeftArrow size={30} className='icon-arrow-left'/>
+                        <span className='icon-arrow-left'>previous</span>
                     </span>
                     <span onClick={() => search('next')}>
-                        <BiRightArrow size={30} className='icon-arrow-right'/>
+                    <span className='icon-arrow-right'>next</span>
                     </span>
                     </div>
                 }

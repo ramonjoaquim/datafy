@@ -36,7 +36,7 @@ const DatafyStats = () => {
     const [messageNotify, setMessageNotify] = useState()
     const [song, setSong] = useState()
 
-    const timeFakeLoading = 2500
+    const timeFakeLoading = 500
 
     useEffect(() => {
       getTopArtist(filter)

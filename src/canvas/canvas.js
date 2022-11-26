@@ -110,7 +110,7 @@ function getTop10Artist(props) {
 function buildBodyMyTop(context, props) {
   //title Card type
   context.font = `45px ${FONT}`
-  context.fillText(props.type === 'artist' ? 'My Top Artist' : 'My Top Song', centerVertically, 310)
+  context.fillText(props.type === 'artist' ? 'My Top Artist' : 'My Top Song', centerVertically, 230)
 
   // title range filter 
   context.font = `20px ${FONT}`
@@ -118,19 +118,19 @@ function buildBodyMyTop(context, props) {
 
   //title artist/song name
   context.font = `40px ${FONT}`
-  context.fillText(props.type === 'artist' ? props.artistName : props.songName, centerVertically, 700)
+  context.fillText(props.type === 'artist' ? props.artistName : props.songName, centerVertically, 660)
 
   //text by band
   if (props.type === 'song') {
     context.font = `20px ${FONT}`
-    context.fillText('By', centerVertically, 740)
+    context.fillText('By', centerVertically, 690)
 
     context.font = `20px ${FONT}`
-    context.fillText(props.songArtist, centerVertically, 770)
+    context.fillText(props.songArtist, centerVertically, 720)
   }
 
   //insert image from artist/song
-  let img = props.type === 'artist' ? drawImageOnCanvas(props.artistImage, 100, 350) : drawImageOnCanvas(props.songImage, 100, 350)
+  let img = props.type === 'artist' ? drawImageOnCanvas(props.artistImage, 100, 280) : drawImageOnCanvas(props.songImage, 100, 280)
   context.drawImage(img, 500, 500)
 }
 
@@ -151,7 +151,7 @@ function buildBodyMyTop10(context, props) {
   }
   //title Card type
   context.font = `45px ${FONT}`
-  context.fillText(props.type === 'top10Song' ? "My Top 10 Songs" : props.type === 'top10Artist' ? "My Top 10 Artists" : "My Top 10 Genres", centerVertically, 310)
+  context.fillText(props.type === 'top10Song' ? "My Top 10 Songs" : props.type === 'top10Artist' ? "My Top 10 Artists" : "My Top 10 Genres", centerVertically, 250)
 
   context.font = `20px ${FONT}`
   let initialPosition = 360
@@ -195,21 +195,21 @@ function drawCanvas(props, background, setLoadingShare, callbackPromise = false)
     context.textBaseline = "middle" 
 
     //title Datafy
-    context.font = `70px ${FONT}`
+    context.font = `70px barcode`
     context.fillStyle = "whitesmoke"
-    context.fillText("Datafy", centerVertically, 80)
+    context.fillText("Datafy", centerVertically, 130)
 
     //userData
-    context.font = `20px ${FONT}`
-    context.fillStyle = "whitesmoke"
-    context.fillText('of', centerVertically, 120)
+//    context.font = `20px ${FONT}`
+//    context.fillStyle = "whitesmoke"
+//    context.fillText('of', centerVertically, 120)
 
-    context.font = `20px ${FONT}`
-    context.fillStyle = "whitesmoke"
-    context.fillText(getUserContext().userDisplayName, centerVertically, 230)
+//    context.font = `20px ${FONT}`
+//    context.fillStyle = "whitesmoke"
+//    context.fillText(getUserContext().userDisplayName, centerVertically, 230)
 
-    let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 140, 30)
-    context.drawImage(userPhotoProfile, 500, 200)
+//    let userPhotoProfile = drawImageOnCanvasProfile(getUserContext().userProfileImage, 215, 140, 30)
+//    context.drawImage(userPhotoProfile, 500, 200)
 
     if (props.top10Song || props.top10Artist) {
       buildBodyMyTop10(context, props)
