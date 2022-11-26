@@ -1,11 +1,11 @@
 import './card-my-top.css'
 import { useState } from 'react'
-import Loading from '../../loading/loading'
+import Loading from '../../../loading/loading'
 import { ShimmerThumbnail } from 'react-shimmer-effects'
-import Toast from '../../toast/toast'
-import PopUp from '../../pop-up/pop-up'
-import { getFont } from '../../../context/app-context'
-import { drawCanvas } from '../../../canvas/canvas'
+import Toast from '../../../toast/toast'
+import PopUp from '../../../pop-up/pop-up'
+import { getFont } from '../../../../context/app-context'
+import { drawCanvas } from '../../../../canvas/canvas'
 
 //icons
 import { GiSoundWaves, GiStarSwirl, GiRollingEnergy, GiBeastEye, GiPlayButton } from 'react-icons/gi'
@@ -14,35 +14,35 @@ import { RiShareFill } from  'react-icons/ri'
 import { SiGooglepodcasts } from 'react-icons/si'
 
 //backgrounds-images
-import black from '../../../assets/my-tops/black-background.jpg'
-import black02 from '../../../assets/my-tops/black-02-background.jpg'
-import blue from '../../../assets/my-tops/blue-background.jpg'
-import blue02 from '../../../assets/my-tops/blue-02-background.jpg'
-import glitch from '../../../assets/my-tops/glitch-background.jpg'
-import gray from '../../../assets/my-tops/gray-background.jpg'
-import xmas from '../../../assets/my-tops/xmas-background.jpg'
+import black from '../../../../assets/my-tops/black-background.jpg'
+import black02 from '../../../../assets/my-tops/black-02-background.jpg'
+import blue from '../../../../assets/my-tops/blue-background.jpg'
+import blue02 from '../../../../assets/my-tops/blue-02-background.jpg'
+import glitch from '../../../../assets/my-tops/glitch-background.jpg'
+import gray from '../../../../assets/my-tops/gray-background.jpg'
+import xmas from '../../../../assets/my-tops/xmas-background.jpg'
 
 //backgrounds-solids
-import solidBlue from '../../../assets/solid-background/blue.png'
-import solidBlue02 from '../../../assets/solid-background/blue02.png'
-import solidCian from '../../../assets/solid-background/cian.png'
-import solidGreen from '../../../assets/solid-background/green.png'
-import solidGreen02 from '../../../assets/solid-background/green02.png'
-import solidLightPurple from '../../../assets/solid-background/light-purple.png'
-import solidPurple from '../../../assets/solid-background/purple.png'
+import solidBlue from '../../../../assets/solid-background/blue.png'
+import solidBlue02 from '../../../../assets/solid-background/blue02.png'
+import solidCian from '../../../../assets/solid-background/cian.png'
+import solidGreen from '../../../../assets/solid-background/green.png'
+import solidGreen02 from '../../../../assets/solid-background/green02.png'
+import solidLightPurple from '../../../../assets/solid-background/light-purple.png'
+import solidPurple from '../../../../assets/solid-background/purple.png'
 
 //background-animes
-import maitoGuy from '../../../assets/anime-background/maito-guy.png'
-import meca from '../../../assets/anime-background/meca.jpeg'
+import maitoGuy from '../../../../assets/anime-background/maito-guy.png'
+import meca from '../../../../assets/anime-background/meca.jpeg'
 
 //background-asthetic
-import yellowAsthetic from '../../../assets/asthetic/yellow.png'
-import sky from '../../../assets/asthetic/sky.png'
-import sky02 from '../../../assets/asthetic/sky02.png'
-import spotifyList from '../../../assets/asthetic/spotify-list.jpeg'
-import orangeAsthetic from '../../../assets/asthetic/orange.jpeg'
-import disc from '../../../assets/asthetic/disc.jpeg'
-import ocean from '../../../assets/asthetic/ocean.png'
+import yellowAsthetic from '../../../../assets/asthetic/yellow.png'
+import sky from '../../../../assets/asthetic/sky.png'
+import sky02 from '../../../../assets/asthetic/sky02.png'
+import spotifyList from '../../../../assets/asthetic/spotify-list.jpeg'
+import orangeAsthetic from '../../../../assets/asthetic/orange.jpeg'
+import disc from '../../../../assets/asthetic/disc.jpeg'
+import ocean from '../../../../assets/asthetic/ocean.png'
 
 const CardMyTop = (props) => {
   const icon = {
@@ -69,12 +69,12 @@ const CardMyTop = (props) => {
     meca,
 
     //stock
-    black, 
-    black02, 
-    blue, 
-    blue02, 
-    glitch, 
-    gray, 
+    black,
+    black02,
+    blue,
+    blue02,
+    glitch,
+    gray,
     xmas,
 
     //solid
@@ -85,7 +85,7 @@ const CardMyTop = (props) => {
     solidGreen02,
     solidLightPurple,
     solidPurple,
-   
+
   ]
 
   const [background, setBackground] = useState(backgrounds[0])
@@ -150,7 +150,7 @@ const CardMyTop = (props) => {
     })
     setPopup(!popup)
   }
- 
+
   return (
     <><div className='card-box-my-top' style={{
       backgroundImage: `url(${background})`,
@@ -218,9 +218,9 @@ const CardMyTop = (props) => {
     <PopUp
         show={popup}
         setPopup={setPopup}
-        title={'Preview'} 
+        title={'Preview'}
         data={content}/>
-        </>    
+        </>
   )
 }
 

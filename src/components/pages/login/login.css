@@ -2,6 +2,10 @@ body {
   background-color: #100C09;
 }
 
+.form-login {
+    margin-top: 12vh;
+}
+
 .button-login {
   color: #100C09;
   background-color: #FFFCE6;
@@ -12,7 +16,7 @@ body {
 
 .button-login:hover {
   border-color: #feffff;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .logoImg {
@@ -35,4 +39,10 @@ body {
 
 .title-logo:hover {
   color: #E4E6C3
+}
+
+@media screen and (max-width: 768px) {
+    .form-login {
+        margin-top: 12vh;
+    }
 }

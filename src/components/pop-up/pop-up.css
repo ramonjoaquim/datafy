@@ -1,6 +1,6 @@
 
 .popup-background {
-  visibility: 'hidden';
+  visibility: hidden;
   position: fixed; 
   z-index: 100 !important; 
   left: 0;
@@ -48,7 +48,7 @@
 
   60%,
   90% {
-    transform: translateY(50);
+    transform: translateY(0);
     opacity: 1;
   
   }

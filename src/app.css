@@ -1,7 +1,18 @@
 
 @font-face {
-  font-family: "BungeeInline";
-  src: local('BungeeInline'), url('./fonts//Bungee_Inline/BungeeInline-Regular.ttf') format("truetype");
+    font-family: "barcode";
+    src: local('barcode'), url('./fonts//barcode/LibreBarcode39Text-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "barcode";
+    src: local('barcode'), url('./fonts//barcode/LibreBarcode39Text-Regular.ttf') format("truetype");
+}
+
+
+@font-face {
+  font-family: "rubikDistressed";
+  src: local('BungeeInline'), url('./fonts//Rubik_Distressed/RubikDistressed-Regular.ttf') format("truetype");
 }
 
 @font-face {
@@ -69,6 +80,14 @@
 
 .font-dazzle {
   font-family: "dazzle";
+}
+
+.font-barcode {
+  font-family: "barcode"
+}
+
+.font-rubik-distressed {
+    font-family: "rubikDistressed"
 }
 
 *{

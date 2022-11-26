@@ -20,22 +20,19 @@
 }
 
 .notification {
-	background: #fff;
-	transition: .3s ease;
+    transition: .3s ease;
 	position: relative;
 	pointer-events: auto;
 	overflow: hidden;
-	margin: 0 0 6px;
-	padding: 30px;
-	margin-bottom: 15px;
-	width: 300px;
+    padding: 30px;
+    margin: 0 0 15px;
+    width: 300px;
 	max-height: 100px;
 	border-radius: 3px 3px 3px 3px;
 	/* box-shadow: 0 0 10px #999; */
 	color: #000;
 	opacity: .8;
-	background-position: 15px;
-	background-repeat: no-repeat;
+    background: #fff no-repeat 15px;
 }
 
 .notification:hover {
@@ -55,11 +52,10 @@
 }
 
 .notification-message {
-	margin: 0;
-	text-align: left;
+    text-align: left;
   height: 20px;
-  margin-left: -1px;
-  overflow: hidden;
+    margin: 0 0 0 -1px;
+    overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -122,7 +118,7 @@
 @media screen and (max-width: 768px) {
   
   .notification {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }

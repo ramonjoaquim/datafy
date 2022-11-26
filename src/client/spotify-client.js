@@ -86,6 +86,26 @@ const getMe = () => {
   })
 }
 
+const search = (value, filter, next, previous) => {
+    let url = `${API}/search`
+    let params = {q: value, type: 'track', limit: 10}
+    if (filter === 'next' && next) {
+        url = next
+        params = {}
+    } else if (filter === 'previous' && previous) {
+        url = previous
+        params = {}
+    }
+    return axios.get(url, {
+        params: params,
+        headers: {
+            Accept: headerAccept,
+            'Content-Type': headerAccept,
+            'Authorization': `${getUserContext().tokenType} ${getUserContext().accessToken}`
+        }
+    })
+}
+
 const playSongFromAlbum = (uriAlbum, songPosition) => {
   axios.put(`${API}/me/player/play`, {
     'context_uri': uriAlbum,
@@ -117,10 +137,11 @@ const handleCallBack = (code) => {
 }
 
 export { 
-  getArtists, 
-  getArtistTopTracks, 
-  getTopSongs, 
-  getMe, 
-  handleCallBack, 
-  playSongFromAlbum 
+    getArtists,
+    getArtistTopTracks,
+    getTopSongs,
+    getMe,
+    handleCallBack,
+    playSongFromAlbum,
+    search
 }

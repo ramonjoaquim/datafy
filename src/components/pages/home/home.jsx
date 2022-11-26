@@ -1,15 +1,15 @@
-import Navbar from '../navbar/navbar'
-import RadioSwitch from '../radio-switch/radio-switch'
+import Navbar from '../../navbar/navbar'
+import RadioSwitch from '../../radio-switch/radio-switch'
 import CardMyTop from './card-my-top/card-my-top'
 import { useState, useEffect } from 'react'
-import { getArtists, getTopSongs } from '../../client/spotify-client'
-import { 
-  setTopArtistContext, 
-  setTopSongContext, 
+import { getArtists, getTopSongs } from '../../../client/spotify-client'
+import {
+  setTopArtistContext,
+  setTopSongContext,
   setTop10SongContext,
-  setTop10ArtistsContext, 
-  getSearchContext 
-} from '../../context/search-context'
+  setTop10ArtistsContext,
+  getSearchContext
+} from '../../../context/search-context'
 
 import './home.css'
 
@@ -25,7 +25,7 @@ const Home = () => {
     useEffect(() => {
       getTopArtistFrom()
       getTop10ArtistsFrom()
-      
+
       getTopSongFrom()
       getTop10SongFrom()
     }, [filter])
@@ -114,40 +114,40 @@ const Home = () => {
         <Navbar />
         <RadioSwitch setFilter={setFilter} value={filter}/>
         <div className='card-container'>
-          <CardMyTop 
-            title={'My Top Arstist'} 
-            type={'artist'} 
+          <CardMyTop
+            title={'My Top Arstist'}
+            type={'artist'}
             artistName={topArtist?.name}
             artistImage={topArtist?.images[0].url}
             loading={loading}
             filter={filter}/>
 
-          <CardMyTop 
-            title={'My Top Song'} 
-            type={'song'} 
-            songName={topSong?.name} 
+          <CardMyTop
+            title={'My Top Song'}
+            type={'song'}
+            songName={topSong?.name}
             songArtist={topSong?.artists[0].name}
             songImage={topSong?.album.images[0].url}
             loading={loading}
             filter={filter}/>
 
-          <CardMyTop 
-            title={'My Top 10 Songs'} 
-            type={'top10Song'} 
+          <CardMyTop
+            title={'My Top 10 Songs'}
+            type={'top10Song'}
             top10Song={top10Song}
             loading={loading}
             filter={filter}/>
 
-          <CardMyTop 
-            title={'My Top 10 Artists'} 
-            type={'top10Artist'} 
+          <CardMyTop
+            title={'My Top 10 Artists'}
+            type={'top10Artist'}
             top10Artist={top10Artist}
             loading={loading}
             filter={filter}/>
 
-          <CardMyTop 
-            title={"My Top 10 Genres"} 
-            type={'top10Genre'} 
+          <CardMyTop
+            title={"My Top 10 Genres"}
+            type={'top10Genre'}
             top10Genre={top10Genre}
             loading={loading}
             filter={filter}/>

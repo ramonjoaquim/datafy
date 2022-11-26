@@ -2,7 +2,7 @@ import { BsPerson } from 'react-icons/bs'
 import { GiRollingEnergy } from 'react-icons/gi'
 import { SiYoutubemusic } from 'react-icons/si'
 import { MdOutlinePlayCircleFilled } from 'react-icons/md'
-import { getFont } from '../../../context/app-context'
+import { getFont } from '../../../../context/app-context'
 import './card.css'
 
 const Card = (props) => {

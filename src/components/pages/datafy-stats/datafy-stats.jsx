@@ -1,18 +1,18 @@
-import Navbar from '../navbar/navbar'
+import Navbar from '../../navbar/navbar'
 import Card from './card/card'
 import './datafy-stats.css'
-import RadioSwitch from '../radio-switch/radio-switch'
-import PopUp from '../pop-up/pop-up'
+import RadioSwitch from '../../radio-switch/radio-switch'
+import PopUp from '../../pop-up/pop-up'
 import { useState, useEffect } from 'react'
-import Loading from '../loading/loading'
-import Toast from '../toast/toast'
+import Loading from '../../loading/loading'
+import Toast from '../../toast/toast'
 import { ShimmerThumbnail } from "react-shimmer-effects"
-import { getArtists, getArtistTopTracks, getTopSongs, playSongFromAlbum } from '../../client/spotify-client'
-import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } from '../../context/search-context'
+import { getArtists, getArtistTopTracks, getTopSongs, playSongFromAlbum } from '../../../client/spotify-client'
+import { setTopSongStatsContext, setTopArtistStatsContext, getSearchContext } from '../../../context/search-context'
 
 //icons
 import { HiPlay } from 'react-icons/hi'
-import { getFont } from '../../context/app-context'
+import { getFont } from '../../../context/app-context'
 
 const DatafyStats = () => {
     const genreNames = ['Pop', 'Rock', 'Eletronic', 'Indie', 'Indie Rock', 'lofi']
@@ -57,7 +57,7 @@ const DatafyStats = () => {
         <center><h3 style={{fontSize: '30px'}}>Top tracks</h3></center>
         <center>
           <div className='track-list'>
-            {Array.apply(0, topTracksArtist).map((track) => 
+            {Array.apply(0, topTracksArtist).map((track) =>
               <>
               <div className='track-row'>
                 <span className={`top-tracks-text font-${getFont()}`}>{track.name}</span>
@@ -131,7 +131,7 @@ const DatafyStats = () => {
         }, timeFakeLoading)
         return
       }
-      
+
       getTopSongs(filter).then(res => {
         setTopSongs(res.data.items)
         setloadingSong(false)
@@ -160,47 +160,47 @@ const DatafyStats = () => {
           <div className='box-home'>
             <h2>Top Artists <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
-            {loadingArtist ? shimmerBlock() : Array.apply(0, topArtists).map((artist) => 
-               <Card title={artist.name ?? getRandomBandName()} 
+            {loadingArtist ? shimmerBlock() : Array.apply(0, topArtists).map((artist) =>
+               <Card title={artist.name ?? getRandomBandName()}
                     clickeable={true}
-                    type='artist' 
-                    imageUrl={artist.id ? artist.images[0].url : null} 
+                    type='artist'
+                    imageUrl={artist.id ? artist.images[0].url : null}
                     blocked={!artist.id}
                     onClick={() => selectArtist(artist)}/>
              )}
             </section>
             <h2>Top Songs <small className='label-order'>(Most to least)</small></h2>
             <section className='box-section'>
-            {loadingSong ? shimmerBlock() : Array.apply(0, topSongs).map((song) => 
-               <Card title={song.name ?? getRandomSongsdName()} 
+            {loadingSong ? shimmerBlock() : Array.apply(0, topSongs).map((song) =>
+               <Card title={song.name ?? getRandomSongsdName()}
                     clickeable={false}
                     nameBand={song.artists ? song.artists[0].name : null}
-                    type='song' 
+                    type='song'
                     song={song}
                     setSong={setSong}
                     playMusic={true}
-                    imageUrl={song.id ? song.album.images[0].url : null} 
+                    imageUrl={song.id ? song.album.images[0].url : null}
                     blocked={!song.id}/>
              )}
             </section>
             <h2>Top genres</h2>
             <section className='box-section' style={{cursor: 'none'}}>
-            {loadingSong ? shimmerBlock() : Array.apply(0, topGenres).map((genre) => 
+            {loadingSong ? shimmerBlock() : Array.apply(0, topGenres).map((genre) =>
                <Card title={genre} type='genre' blocked={defaultGenre}/>
              )}
             </section>
           </div>
 
-          <Toast 
+          <Toast
             show={notify}
             setNotify={setNotify}
             type={'info'}
             title={titleNotify}
             message={messageNotify} />
 
-          <PopUp 
-            show={popup} 
-            setPopup={setPopup} 
+          <PopUp
+            show={popup}
+            setPopup={setPopup}
             title={titleArtist}
             data={content} />
         </>
